@@ -39,8 +39,20 @@ There are four different views including login, posting, saved favorites, and ab
 ```mermaid
 sequenceDiagram
     actor You
-    actor Website
-    You->>Website: Replace this with your design
+    You->>Login: Enter login information
+    Login->>About: View about information
+    About-->>Login: Login
+    Login->>Post: After login
+    Post->>Post: Post
+    Post->>Post: View others
+    Post->>Post: Like other posts
+    Post->>Post: Save favorite posts
+    Post->>Favorites: See saved favorites
+    Favorites-->>Post: View posting page
+    Favorites-->>About: View about information
+    Favorites-->>Login: Logout
+    Post-->>About: View about information
+    Post-->>Login: Logout
 ```
 
 ### Key features
