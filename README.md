@@ -49,9 +49,6 @@ sequenceDiagram
     Post->>Post: Save favorite posts
     Post->>Favorites: See saved favorites
     Favorites-->>Post: View posting page
-    Favorites-->>About: View about information
-    Favorites-->>Login: Logout
-    Post-->>About: View about information
     Post-->>Login: Logout
 ```
 
