@@ -53,9 +53,11 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Login, logout, and register
+- See desciption of the app
+- Post plans for dinner
+- See and like other people's plans
+- Save favorite posts
 
 ### Technologies
 
