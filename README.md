@@ -48,8 +48,7 @@ sequenceDiagram
     Post->>Post: Like other posts
     Post->>Post: Save favorite posts
     Post->>Favorites: See saved favorites
-    Favorites-->>Post: View posting page
-    Post-->>Login: Logout
+    Favorites-->>Login: Logout
 ```
 
 ### Key features
