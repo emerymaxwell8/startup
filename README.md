@@ -25,7 +25,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-
+Are you sick of making the same meals all the time for dinner? Have you ever wondered what your friends or others are making? With Tasty Meals, not only will you be more organized in your meal planning but also you will be more inspired in your dinner choices. Use Tasty Meals to post about your meals and see what those around you are making for their tasty dinners!
 
 ### Design
 
