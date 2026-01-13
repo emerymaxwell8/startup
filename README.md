@@ -47,8 +47,11 @@ sequenceDiagram
 - Login, logout, and register
 - See desciption of the app
 - Post plans for dinner
-- See and like other people's plans
+- See the dinner plans posted by other people
+- Like other people's posts
 - Save favorite posts
+- See saved favorite posts
+- See total likes for each post
 
 ### Technologies
 
