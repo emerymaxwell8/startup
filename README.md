@@ -21,7 +21,6 @@ Are you sick of making the same meals all the time for dinner? Have you ever won
 ### Design
 
 ![Design image for login page](loginpage.png) 
-![Design for favorites page](favorites.png)
 ![Design for posting page](Post.png) 
 ![Design for about page](About.png)
 
