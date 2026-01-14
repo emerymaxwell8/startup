@@ -22,7 +22,7 @@ Are you sick of making the same meals all the time for dinner? Have you ever won
 
 ![Design image for login page](loginpage.png) 
 ![Design for posting page](Post.png) 
-![Design for favorites page](Favorites.png)
+![Design for favorites page](favorites.png)
 ![Design for about page](About.png)
 
 There are four different views including login, posting, saved favorites, and about information. The user is able to post what they plan to have for dinner and see, like, and save other people's plans on the posting view. The saved favorites view shows the posts that the user saved previously. 
@@ -59,7 +59,7 @@ I am going to use the required technologies in the following ways.
 
 - **HTML** - Four HTML pages, a login/register page (login controls), a page that includes a section to write and post dinner plans, a page for saved favorites, and an about page. Images on login and about pages. Correct HTML structure used.
 - **CSS** - clean but inviting color scheme, animation of hearts and pluses (when liking or saving a post), styling that looks good on different screens
-- **React** - routing to different pages like after login or pressing on the favorites, about, or posting icon, login, display other peoples meal plans, post user's meal plan, display likes on other people's posts
+- **React** - routing to different pages like after login or pressing on the favorites, about, or posting icon, login, display other peoples meal plans, post user's meal plan, displays likes on other people's posts
 - **Service** - Endpoints for login/logout/register, recieving and storing dinner plans, third party call to get random pictures of pizza, pasta dish, and burger
 - **DB/Login** - Store users (and their authentication), dinner plan posts, likes, and favorite posts in database
 - **WebSocket** - When the user posts their dinner plan, it is broadcast to all other users
