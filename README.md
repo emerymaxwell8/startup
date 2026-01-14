@@ -21,8 +21,8 @@ Are you sick of making the same meals all the time for dinner? Have you ever won
 ### Design
 
 ![Design image for login page](loginpage.png) 
-![Design for posting page](Post.png) 
 ![Design for favorites page](favorites.png)
+![Design for posting page](Post.png) 
 ![Design for about page](About.png)
 
 There are four different views including login, posting, saved favorites, and about information. The user is able to post what they plan to have for dinner and see, like, and save other people's plans on the posting view. The saved favorites view shows the posts that the user saved previously. 
