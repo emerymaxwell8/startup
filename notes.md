@@ -10,12 +10,12 @@
 
 ## AWS
 
-My IP address is: 54.81.96.130
-Launching my AMI I initially put it on a private subnet. Even though it had a public IP address and the security group was right, I wasn't able to connect to it.
+My IP address is: 100.52.80.144
+Everything worked correctly once I switched my email address to my BYU one. I had some weird complications with switching to an elastic IP but when I switched my email, it worked out. I thought it was really interesting all of the components to creating a website that is servicable and secure. 
 
 ## Caddy
 
-No problems worked just like it said in the [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
+I had a little confusion on how to edit the Caddy and save changes in the console window but after a little investigation I figured it out. The instructions were very useful.[instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
 
 ## HTML
 
