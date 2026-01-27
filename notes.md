@@ -24,7 +24,7 @@ Practicing with the CodePen helped me learn the difference between the structura
 Creating a SVG image was really interesting. I learned that it works on a grid system and thats what allows it to create individual shapes. It can get super complex but I'm excited to see how I will be able to animate the heart below later in the creation process.
 
 <svg width="15" height="15" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
-<path
+  <path
     d="M60 100
     C60 100, 10 70, 10 35
     C10 15, 30 5, 45 20

@@ -60,7 +60,7 @@ I am going to use the required technologies in the following ways.
 - **HTML** - Four HTML pages, a login/register page (login controls), a page that includes a section to write and post dinner plans, a page for saved favorites, and an about page. Images on login and about pages. Correct HTML structure used.
 - **CSS** - clean but inviting color scheme, animation of hearts and pluses (when liking or saving a post), styling that looks good on different screens
 - **React** - routing to different pages like after login or pressing on the favorites, about, or posting icon, login, display other peoples meal plans, post user's meal plan, displays likes on other people's posts
-- **Service** - Endpoints for login/logout/register, recieving and storing dinner plans, third party call to get random pictures of pizza, pasta dish, and burger
+- **Service** - Endpoints for login/logout/register, recieving and storing dinner plans, third party call to get random pictures of pizza, pasta dish, and burger [Public API Link] (https://github.com/surhud004/Foodish#readme)
 - **DB/Login** - Store users (and their authentication), dinner plan posts, likes, and favorite posts in database
 - **WebSocket** - When the user posts their dinner plan, it is broadcast to all other users
 
