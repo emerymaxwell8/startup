@@ -82,7 +82,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Images** - The login page includes an image of a pizza and the about page also has two photos that are standins for the 3rd party API.
 - [x] **Login placeholder** - On the login page there is an input box for an email and password and a submit button for login. The username is also displayed on the posting page.
 - [x] **DB data placeholder** - favorite posts that are saved and pulled from the database are represented on the favorites page.
-- [x] **WebSocket placeholder** - the posting page shows realtime posts of others people's dinner plans
+- [x] **WebSocket placeholder** - the posting page has a section that represents realtime posts of others people's dinner plans
 
 ## 🚀 CSS deliverable
 
