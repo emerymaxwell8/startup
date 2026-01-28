@@ -74,15 +74,15 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - Four HTML pages for login, posting dinner plans, saved favorite plans, and about information
+- [x] **Proper HTML element usage** - used a variety of tags including body, nav, main, header, footer, span, div, and button
+- [x] **Links** - The login page automatically links to the posting page and it also includes a link to the about page. The posting page has a link to itself when someone posts and it includes links for the other pages. The favorites page includes links for the other pages. The about page includes a link for the login page.
+- [x] **Text** - The about page has text
+- [x] **3rd party API placeholder** - The about page includes photos that standin for where the random photos from the API will be
+- [x] **Images** - The login page includes an image of a pizza and the about page also has two photos that are standins for the 3rd party API.
+- [x] **Login placeholder** - On the login page there is an input box for an email and password and a submit button for login. The username is also displayed on the posting page.
+- [x] **DB data placeholder** - favorite posts that are saved and pulled from the database are represented on the favorites page.
+- [x] **WebSocket placeholder** - the posting page shows realtime posts of others people's dinner plans
 
 ## 🚀 CSS deliverable
 
