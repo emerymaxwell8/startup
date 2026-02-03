@@ -7,7 +7,7 @@
     </head>
     <body>
         <header>
-             <h1>TASTY MEALS</h1>
+             <h1 class="title">TASTY MEALS</h1>
             <nav>
                 <menu>
                     <li><a href="favorites.html">FAVORITES</a></li>
@@ -18,13 +18,13 @@
             <hr />
         </header>
         <main>
-            <div>
+            <div id="yourName">
             Your Name: 
-            <span>nameofuser</span>
+            <span id = 'username'>nameofuser</span>
             </div>
             <br />
             
-            <form method="get" action = post.html>
+            <form class = "dinnerQuestion" method="get" action = post.html>
                 What is your plan for dinner?
                 <div>
                 <input type="text" placeholder="Write here..." />
@@ -40,10 +40,10 @@
                     <th>ADD TO FAVORITES</th>
                 </tr>
                     <tr>
-                    <td>Lily</td>
+                    <td class="name">Lily</td>
                     <td>McDonalds!</td>
                     <td>
-                        <button>
+                        <button class="heart">
                             <svg width="15" height="15" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M60 100
@@ -59,14 +59,14 @@
                         <span>4</span>
                     </td>
                     <td>
-                        <button>+</button>
+                        <button class="add">+</button>
                     </td>
                 </tr>
                 <tr>
-                    <td>Danny</td>
+                    <td class="name">Danny</td>
                     <td>I'm making spaghetti</td>
                     <td>
-                        <button>
+                        <button class = 'heart'>
                             <svg width="15" height="15" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M60 100
@@ -82,14 +82,14 @@
                         <span>2</span>
                     </td>
                     <td>
-                        <button>+</button>
+                        <button class="add">+</button>
                     </td>
                 </tr>
                 <tr>
-                    <td>Spencer</td>
+                    <td class="name">Spencer</td>
                     <td>Trying Pancakes</td>
                     <td>
-                        <button>
+                        <button class="heart">
                             <svg width="15" height="15" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M60 100
@@ -105,7 +105,7 @@
                         <span>10</span>
                     </td>
                     <td>
-                        <button>+</button>
+                        <button class="add">+</button>
                     </td>
                 </tr>
             </table>             
