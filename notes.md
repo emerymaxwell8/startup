@@ -1,6 +1,6 @@
 # CS 260 Notes
 
-[My startup - Simon](https://simon.cs260.click)
+[My startup - Tasty Meals](https://startup.tastymeals.click)
 
 ## Helpful links
 
