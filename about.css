@@ -9,3 +9,12 @@ p {
   background: rgb(108, 177, 237);
   border-radius: 5px;
 }
+
+.picture-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+}
+
