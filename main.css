@@ -19,11 +19,6 @@ menu {
     list-style: none;
 }
 
-footer {
-    flex: 0 30px;
-    
-}
-
 main {
     flex: 1;
     display: flex;
@@ -31,6 +26,15 @@ main {
     align-items: center;
     justify-content: center;
     gap: 100px;
+}
+
+footer {
+    flex: 0 30px;
+
+}
+
+footer a {
+  float: right;
 }
 
 
