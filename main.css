@@ -1,6 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
 
 body {
-    font-family: "Playpen Sans", cursive;
+    font-family: "Playpen Sans", cursive !important;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
 }
+
+header {
+    flex: 0 50px;
+}
+
+menu {
+    flex: 1;
+    display: flex;
+    flex-direction: row !important;
+    list-style: none;
+}
+
+footer {
+    flex: 0 30px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
 
