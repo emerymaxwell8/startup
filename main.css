@@ -59,6 +59,10 @@ main {
   border-radius: 5px;
 }
 
+.title {
+    font-weight: bold;
+}
+
 footer {
     flex: 0 30px;
     background-color: rgb(108, 177, 237);

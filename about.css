@@ -1,8 +1,11 @@
 main {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    
+    justify-content: center;
+}
+
+p {
+  flex: 0 150px;
+  font-size: 1.5em;
+  padding: 0.5em;
+  background: rgb(108, 177, 237);
+  border-radius: 5px;
 }
