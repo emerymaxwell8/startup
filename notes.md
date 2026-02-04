@@ -39,11 +39,15 @@ HTML was pretty simple to think through but sometimes feels a little messy. It a
 
 ## CSS
 
+This ended up taking a lot longer than I thought it would. I spent a lot of time fixing tiny elements. 
+
 After reviewing the code for Simon, I realized I need to be very specific for all of my elements. This means putting most elements into different classes that I can work in. I also saw that it is better to create different css files for each of the pages. 
 
 Have to make sure to get rid of html styling so it doesn't mess with css styling
 
 Had to specific the text color specifically with each element, not sure if there is a better way to do that
+
+In order to help with overflow, I included a flex-wrap to my body.
 
 ## React Part 1: Routing
 
