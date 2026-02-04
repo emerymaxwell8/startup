@@ -36,6 +36,10 @@ menu .nav-item {
 }
 
 main {
+    flex:1;
+}
+
+.row-main {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
