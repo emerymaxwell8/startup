@@ -20,6 +20,22 @@ menu {
     list-style: none;
 }
 
+menu .nav-item {
+  padding: 0 0.3em;
+}
+
+.navbar .nav-link.active {
+    color: #fff
+}
+
+.navbar .nav-link {
+    color: #fff
+}
+
+.navbar .nav-link:hover {
+    color: #f0f0f0
+}
+
 main {
     flex: 1;
     display: flex;
