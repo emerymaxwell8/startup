@@ -45,6 +45,12 @@ main {
     gap: 100px;
 }
 
+.picture{
+  padding: 0.5em;
+  background: rgb(108, 177, 237);
+  border-radius: 5px;
+}
+
 footer {
     flex: 0 30px;
     background-color: rgb(108, 177, 237);
