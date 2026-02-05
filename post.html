@@ -30,20 +30,18 @@
             </nav>
         </header>
         <main>
-            <div id="yourName">
-            Your Name: 
-            <span id = 'username'>nameofuser</span>
+            <div>
+            <h1 class="title">Your Name: <span id="name">nameofuser</span></h1>
             </div>
-            <br />
             
-            <form class = "dinnerQuestion" method="get" action = post.html>
-                What is your plan for dinner?
-                <div>
-                <input type="text" placeholder="Write here..." />
-                <button type="submit">POST</button>
-                </div>  
-            </form> 
-            <h2>OTHERS:</h2>
+            <form method="get" action = post.html>
+                <div class = "input-group mb-1 align-items-center gap-3">
+                    <span class="input-group-text">What is your plan for dinner?</span>
+                    <input class="form-control" type="text" placeholder="Write here..." />
+                    <button type="submit" class="btn btn-dark">POST</button>
+                </div>
+            </form>
+            <h1 class="title">OTHERS:</h2>
             <table>
                 <tr>
                     <th>NAME</th>
