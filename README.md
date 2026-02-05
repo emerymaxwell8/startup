@@ -88,12 +88,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Visually appealing colors and layout. No overflowing elements.** - I did not complete this part of the deliverable.
-- [ ] **Use of a CSS framework** - I did not complete this part of the deliverable.
-- [ ] **All visual elements styled using CSS** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing using flexbox and/or grid display** - I did not complete this part of the deliverable.
-- [ ] **Use of a imported font** - I did not complete this part of the deliverable.
-- [ ] **Use of different types of selectors including element, class, ID, and pseudo selectors** - I did not complete this part of the deliverable.
+- [x] **Visually appealing colors and layout. No overflowing elements.** - elements are included that make the application visually appealing like the use of borders and colors. There are no overflowing elements and that was made possible because of the use of flex-wrap for flex elements. Ellipses are also used for certian text elements. 
+- [x] **Use of a CSS framework** - used Bootstrap to help with styling. All buttons and tables are stylized using Bootstrap and so is the navigation menu. 
+- [x] **All visual elements styled using CSS** - All visual elements are styled using CSS or Bootstrap. This includes animation of the title, buttons, borders, and more.
+- [x] **Responsive to window resizing using flexbox and/or grid display** - Used flexbox for all elements in the application to make it responsive to window resizing.
+- [x] **Use of a imported font** - Used Playpen Sans as my imported font
+- [x] **Use of different types of selectors including element, class, ID, and pseudo selectors** - Used element, class, ID, psuedo (when adding a hover element to photos), and some other selectors to apply my CSS
 
 ## 🚀 React part 1: Routing deliverable
 
