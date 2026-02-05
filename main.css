@@ -20,6 +20,10 @@ menu {
     list-style: none;
 }
 
+.picture:hover {
+    background: black;
+}
+
 menu .nav-item {
   padding: 0 0.3em;
 }
