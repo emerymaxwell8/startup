@@ -17,6 +17,7 @@ td {
 
 .user-post {
     flex: 0 1 1;
+    flex-wrap: wrap;
 }
 
 .others {
