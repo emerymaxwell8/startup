@@ -5,3 +5,25 @@ main {
 #name {
   font-style:italic;  
 }
+
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#y-name {
+    flex: 0 1 1;
+}
+
+.user-post {
+    flex: 0 1 1;
+}
+
+.others {
+    flex: 0 1 1;
+}
+
+#prompt {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

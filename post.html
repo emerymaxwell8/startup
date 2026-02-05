@@ -31,18 +31,18 @@
         </header>
         <main>
             <div>
-            <h1 class="title">Your Name: <span id="name">nameofuser</span></h1>
+            <h1 id='y-name' class="title">Your Name: <span id="name">nameofuser</span></h1>
             </div>
             
             <form method="get" action = post.html>
-                <div class = "input-group mb-1 align-items-center gap-3">
+                <div class = "user-post input-group mb-1 align-items-center gap-3">
                     <span class="input-group-text">What is your plan for dinner?</span>
-                    <input class="form-control" type="text" placeholder="Write here..." />
+                    <input id = 'prompt' class="form-control" type="text" placeholder="Write here..." />
                     <button type="submit" class="btn btn-dark">POST</button>
                 </div>
             </form>
             <h1 class="title">OTHERS:</h2>
-            <table>
+            <table class="others table table-primary table-striped-columns">
                 <tr>
                     <th>NAME</th>
                     <th>PLANS</th>
@@ -50,10 +50,10 @@
                     <th>ADD TO FAVORITES</th>
                 </tr>
                     <tr>
-                    <td class="name">Lily</td>
+                    <td>Lily</td>
                     <td>McDonalds!</td>
                     <td>
-                        <button class="heart">
+                        <button type='button' class = 'btn btn-outline-danger'>
                             <svg width="15" height="15" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M60 100
@@ -69,14 +69,14 @@
                         <span>4</span>
                     </td>
                     <td>
-                        <button class="add">+</button>
+                        <button type='button 'class="btn btn-outline-dark">+</button>
                     </td>
                 </tr>
                 <tr>
-                    <td class="name">Danny</td>
+                    <td>Danny</td>
                     <td>I'm making spaghetti</td>
                     <td>
-                        <button class = 'heart'>
+                        <button type='button' class = 'btn btn-outline-danger'>
                             <svg width="15" height="15" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M60 100
@@ -92,14 +92,14 @@
                         <span>2</span>
                     </td>
                     <td>
-                        <button class="add">+</button>
+                        <button type='button 'class="btn btn-outline-dark"lass="add">+</button>
                     </td>
                 </tr>
                 <tr>
-                    <td class="name">Spencer</td>
+                    <td>Spencer</td>
                     <td>Trying Pancakes</td>
                     <td>
-                        <button class="heart">
+                        <button type='button' class = 'btn btn-outline-danger'>
                             <svg width="15" height="15" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M60 100
@@ -115,7 +115,7 @@
                         <span>10</span>
                     </td>
                     <td>
-                        <button class="add">+</button>
+                        <button type='button 'class="btn btn-outline-dark">+</button>
                     </td>
                 </tr>
             </table>             
