@@ -67,6 +67,18 @@ main {
 
 .title {
     font-weight: bold;
+
+    animation-name: grow;
+    animation-duration: 5s;
+}
+
+@keyframes grow {
+  from {
+    font-size: 0vh;
+  }
+  to {
+    font-size: 4.5vh;
+  }
 }
 
 footer {

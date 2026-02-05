@@ -49,6 +49,12 @@ Had to specific the text color specifically with each element, not sure if there
 
 In order to help with overflow, I included a flex-wrap to my body.
 
+I found the animation super interesting and though I didn't get a lot of time to look at it, I want to include more animation elements into my startup in the future.
+
+I had to make sure to specify flex growth and shrink to improve overflow as well
+
+Bootstrap has so many cool aspects to it!! I loved the individual buttons. I learned you need to include gap in the class name to make sure there is a gap between your button and other elements 
+
 ## React Part 1: Routing
 
 Setting up Vite and React was pretty simple. I had a bit of trouble because of conflicting CSS. This isn't as straight forward as you would find with Svelte or Vue, but I made it work in the end. If there was a ton of CSS it would be a real problem. It sure was nice to have the code structured in a more usable way.
