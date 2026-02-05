@@ -14,3 +14,8 @@ p {
     gap: 100px;
 }
 
+@media (max-width: 768px) {
+  .picture-section {
+    gap:0px;
+  }
+}

@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    flex: 0 80px;
+    flex: 0 1 80px;
     flex-wrap: wrap;
     background-color: rgb(108, 177, 237);
 }
@@ -84,13 +84,19 @@ main {
 }
 
 footer {
-    flex: 0 30px;
+    flex: 0 1 30px;
     flex-wrap: wrap;
     background-color: rgb(108, 177, 237);
 }
 
 footer a {
   float: right;
+}
+
+@media (max-width: 768px) {
+    .row-main {
+      gap: 5px;
+    }
 }
 
 @media (max-height: 600px) {
