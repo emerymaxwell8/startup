@@ -61,6 +61,8 @@ I should spend more time learning the JavaScript for React Part 2: I'm going to 
 
 Remember that with somethings you debug using VS code and other things you debug using the console window
 
+Vite host allows us to see the result in the browser. A router allows for there only to be one HTML page
+
 
 
 ## React Part 2: Reactivity
