@@ -59,6 +59,8 @@ Bootstrap has so many cool aspects to it!! I loved the individual buttons. I lea
 
 I should spend more time learning the JavaScript for React Part 2: I'm going to refer back to this page in the future[JavaScript-Instructions]https://github.com/webprogramming260/webprogramming/blob/main/instruction/javascript/introduction/introduction.md
 
+Remember that with somethings you debug using VS code and other things you debug using the console window
+
 
 
 ## React Part 2: Reactivity
