@@ -11,6 +11,7 @@ header {
     flex: 0 1 80px;
     flex-wrap: wrap;
     background-color: rgb(108, 177, 237);
+    padding: 0 1em;
 }
 
 menu {
@@ -87,6 +88,7 @@ footer {
     flex: 0 1 30px;
     flex-wrap: wrap;
     background-color: rgb(108, 177, 237);
+    padding: 0 .5em;
 }
 
 footer a {
