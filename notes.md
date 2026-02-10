@@ -57,7 +57,9 @@ Bootstrap has so many cool aspects to it!! I loved the individual buttons. I lea
 
 ## React Part 1: Routing
 
-Setting up Vite and React was pretty simple. I had a bit of trouble because of conflicting CSS. This isn't as straight forward as you would find with Svelte or Vue, but I made it work in the end. If there was a ton of CSS it would be a real problem. It sure was nice to have the code structured in a more usable way.
+I should spend more time learning the JavaScript for React Part 2: I'm going to refer back to this page in the future[JavaScript-Instructions]https://github.com/webprogramming260/webprogramming/blob/main/instruction/javascript/introduction/introduction.md
+
+
 
 ## React Part 2: Reactivity
 
