@@ -1,5 +1,6 @@
-main {
+.main-post {
     gap: 50px;
+    padding: 1em;
 }
 
 #name {
