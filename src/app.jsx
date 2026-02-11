@@ -15,10 +15,10 @@ export default function App() {
                 <nav className="navbar">
                     <h1 className="navbar-brand fs-2 text-white">TASTY MEALS</h1>
                     <menu className="navbar-nav">
-                        <li className="nav-item"><a className ="nav-link active" href="index.html">HOME</a></li>
-                        <li className="nav-item"><a className="nav-link" href="post.html">POST</a></li>
-                        <li className="nav-item"><a className="nav-link" href="favorites.html">FAVORITES</a></li>
-                        <li className="nav-item"><a className="nav-link" href="about.html">ABOUT</a></li>
+                        <li><a className ="nav-link active" to=''>HOME</a></li>
+                        <li><a className="nav-link" to='post'>POST</a></li>
+                        <li><a className="nav-link" to='favorites'>FAVORITES</a></li>
+                        <li><a className="nav-link" to='about'>ABOUT</a></li>
                     </menu>
                 </nav>
             </header>
