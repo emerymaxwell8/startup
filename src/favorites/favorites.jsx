@@ -3,10 +3,10 @@ import './favorites.css';
 
 export function Favorites() {
   return (
-    <main class="favorites-main">
-        <h1 class="title"> YOUR FAVORITES!</h1>
+    <main className="favorites-main">
+        <h1 className="title"> YOUR FAVORITES!</h1>
         <div>
-            <table class="table table-primary table-striped-columns">
+            <table className="table table-primary table-striped-columns">
                 <thead>
                     <tr>
                         <th>NAME</th>
