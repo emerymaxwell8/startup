@@ -11,27 +11,27 @@ export default function App() {
   return (
     <BrowserRouter>
         <div className="app">
-        <header>
+            <header>
                 <nav className="navbar">
                     <h1 className="navbar-brand fs-2 text-white">TASTY MEALS</h1>
                     <menu className="navbar-nav">
-                        <li><a className ="nav-link" to=''>HOME</a></li>
-                        <li><a className="nav-link" to='post'>POST</a></li>
-                        <li><a className="nav-link" to='favorites'>FAVORITES</a></li>
-                        <li><a className="nav-link" to='about'>ABOUT</a></li>
+                        <li className="nav-item"><NavLink className ="nav-link" to=''>HOME</NavLink></li>
+                        <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>
+                        <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>
+                        <li className="nav-item"><NavLink className="nav-link" to='about'>ABOUT</NavLink></li>
                     </menu>
                 </nav>
             </header>
 
-        <Routes>
-            <Route path='/' element={<Login />} exact />
-            <Route path='/post' element={<Post />} />
-            <Route path='/favorites' element={<Favorites />} />
-            <Route path='/about' element={<About />} />
-            <Route path='*' element={<NotFound />} />
-        </Routes>
+            <Routes>
+                <Route path='/' element={<Login />} exact />
+                <Route path='/post' element={<Post />} />
+                <Route path='/favorites' element={<Favorites />} />
+                <Route path='/about' element={<About />} />
+                <Route path='*' element={<NotFound />} />
+            </Routes>
 
-        <footer className = 'text-white'>
+            <footer className = 'text-white'>
                 <div>
                     <span>Emery Maxwell</span>
                     <a href="https://github.com/emerymaxwell8/startup.git">GitHub</a>
