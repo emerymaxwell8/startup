@@ -23,7 +23,13 @@ export default function App() {
                 </nav>
             </header>
 
-        <main>App components go here</main>
+        <Routes>
+            <Route path='/' element={<Login />} exact />
+            <Route path='/post' element={<Post />} />
+            <Route path='/favorites' element={<Favorites />} />
+            <Route path='/about' element={<About />} />
+            <Route path='*' element={<NotFound />} />
+        </Routes>
 
         <footer className = 'text-white'>
                 <div>
