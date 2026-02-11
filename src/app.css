@@ -30,11 +30,11 @@ menu .nav-item {
 }
 
 .navbar .nav-link {
-    color: #fff
+    color: white
 }
 
 .navbar .nav-link:hover {
-    color: #f0f0f0
+    color: black
 }
 
 main {
