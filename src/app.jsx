@@ -15,7 +15,7 @@ export default function App() {
                 <nav className="navbar">
                     <h1 className="navbar-brand fs-2 text-white">TASTY MEALS</h1>
                     <menu className="navbar-nav">
-                        <li><a className ="nav-link active" to=''>HOME</a></li>
+                        <li><a className ="nav-link" to=''>HOME</a></li>
                         <li><a className="nav-link" to='post'>POST</a></li>
                         <li><a className="nav-link" to='favorites'>FAVORITES</a></li>
                         <li><a className="nav-link" to='about'>ABOUT</a></li>
