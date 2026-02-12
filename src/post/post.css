@@ -12,8 +12,9 @@ td {
   text-overflow: ellipsis;
 }
 
+
 #y-name {
-    flex: 0 1 1;
+    flex: 0 1 s1;
 }
 
 .user-post {

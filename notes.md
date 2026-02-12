@@ -63,7 +63,9 @@ Remember that with somethings you debug using VS code and other things you debug
 
 Vite host allows us to see the result in the browser. A router allows for there only to be one HTML page
 
+It was cool going through the steps and seeing how it can all be put together! I like how much cleaner it looks with just a single HTML file loading. 
 
+The process was relatively easy. I accidently loaded my node_module files to github so I spent a little bit trying to fix that. I need to remember in the future to add that to the gitignore. Once I got things to the console, the css was not working very well because of how Bootstrap was implementing things. I had to change some of the css in order to make it work with Bootstrap React. But other than that it was a simple process. 
 
 ## React Part 2: Reactivity
 
