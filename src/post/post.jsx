@@ -4,16 +4,26 @@ import {getName, getPlan} from '../service.js';
 
 export function Post({userName}) {
     const [posts, setPosts] = React.useState([]);
+    const [userPlan, setUserPlan] = React.useState('');
     let count = 0;
 
     function addPost() {
         const newPost = {
             name: getName(),
             plan: getPlan(), 
-            likes: 0,
+            likes: 0
         }
         setPosts(prevPosts => [...prevPosts, newPost].slice(-8));
         
+    }
+
+    function addUserPost() {
+        const userPost = {
+            name: userName, 
+            plan: userPlan, 
+            likes: 0
+        }
+        setPosts(prevPosts => [...prevPosts, userPost].slice(-8));
     }
 
     React.useEffect(() => {
@@ -26,13 +36,11 @@ export function Post({userName}) {
       <div>
       <h1 id='y-name' className="title">Your Name: <span id="name">{userName}</span></h1>
       </div>
-      <form method="get" action = "post">
         <div className = "user-post input-group mb-1 align-items-center gap-3">
             <span className="input-group-text">Plan for dinner?</span>
-            <input id = 'prompt' className="form-control" type="text" placeholder="Write here..." />
-            <button type="submit" className="btn btn-dark">POST</button>
+            <input id = 'prompt' className="form-control" type="text" onChange={(e) => setUserPlan(e.target.value)}placeholder="Write here..." />
+            <button type="submit" className="btn btn-dark" onClick={() => addUserPost()}>POST</button>
         </div>
-      </form>
       <h1 className="title">OTHERS:</h1>
         <table className="others table table-primary table-striped-columns">
             <thead>
