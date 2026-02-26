@@ -8,7 +8,6 @@ import { Favorites } from './favorites/favorites';
 import { About } from './about/about';
 
 export default function App() {
-    const [userName, setUserName] = React.useState(localStorage.getItem('userName') || null);
   return (
     <BrowserRouter>
         <div className="app">
@@ -17,8 +16,8 @@ export default function App() {
                     <h1 className="navbar-brand fs-2 text-white">TASTY MEALS</h1>
                     <menu className="navbar-nav">
                         <li className="nav-item"><NavLink className ="nav-link" to=''>HOME</NavLink></li>
-                        {userName && <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>}
-                        {userName && <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>}
+                        {user && <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>}
+                        {user && <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>}
                         <li className="nav-item"><NavLink className="nav-link" to='about'>ABOUT</NavLink></li>
                     </menu>
                 </nav>
@@ -26,10 +25,6 @@ export default function App() {
 
             <Routes>
                 <Route path='/' element={<Login 
-                    userName={userName}
-                    onAuthChange={(UserName) => {
-                      setUserName(UserName);
-                    }}
                 />
                 } 
                 exact 

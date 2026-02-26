@@ -1,16 +1,6 @@
 import React from 'react';
 
-export function Login({userName, authState, onAuthChange}) {
-    
-    async function loginUser() {
-    localStorage.setItem('userName', userName);
-    props.onLogin(userName);
-  }
-
-  async function createUser() {
-    localStorage.setItem('userName', userName);
-    props.onLogin(userName);
-  }
+export function Login() {
   return (
     <main className="row-main">
         <div><img className="picture" alt = "pizza" src="pizza-holder.jpg" width = {300}px /></div>
@@ -25,8 +15,8 @@ export function Login({userName, authState, onAuthChange}) {
                     <span className="input-group-text">PASSWORD</span>
                     <input className="form-control" type="password" placeholder="password" />
                 </div>
-                <button onClick={() => loginUser()} type="submit" className ="me-2 btn btn-dark">LOGIN</button>
-                <button onCLick={() => registerUser()} type="submit" className ="btn btn-dark">REGISTER</button>
+                <button  type="submit" className ="me-2 btn btn-dark">LOGIN</button>
+                <button  type="submit" className ="btn btn-dark">REGISTER</button>
             </form>
         </div>
     </main>
