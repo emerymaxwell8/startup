@@ -6,12 +6,9 @@ import { Login } from './login/login';
 import { Post } from './post/post';
 import { Favorites } from './favorites/favorites';
 import { About } from './about/about';
-import { AuthState } from './login/authState';
 
 export default function App() {
-    const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
-    const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
-    const [authState, setAuthState] = React.useState(currentAuthState);
+    const [userName, setUserName] = React.useState(localStorage.getItem('userName') || null);
   return (
     <BrowserRouter>
         <div className="app">
@@ -20,8 +17,8 @@ export default function App() {
                     <h1 className="navbar-brand fs-2 text-white">TASTY MEALS</h1>
                     <menu className="navbar-nav">
                         <li className="nav-item"><NavLink className ="nav-link" to=''>HOME</NavLink></li>
-                        {authState == AuthState.Authenticated && <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>}
-                        {authState == AuthState.Authenticated && <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>}
+                        {userName && <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>}
+                        {userName && <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>}
                         <li className="nav-item"><NavLink className="nav-link" to='about'>ABOUT</NavLink></li>
                     </menu>
                 </nav>
@@ -30,9 +27,7 @@ export default function App() {
             <Routes>
                 <Route path='/' element={<Login 
                     userName={userName}
-                    authState={authState}
-                    onAuthChange={(UserName, authState) => {
-                      setAuthState(authState);
+                    onAuthChange={(UserName) => {
                       setUserName(UserName);
                     }}
                 />
