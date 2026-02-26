@@ -16,8 +16,8 @@ export default function App() {
                     <h1 className="navbar-brand fs-2 text-white">TASTY MEALS</h1>
                     <menu className="navbar-nav">
                         <li className="nav-item"><NavLink className ="nav-link" to=''>HOME</NavLink></li>
-                        <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>
-                        <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>
+                        {authState == AuthState.Authenticated && <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>}
+                        {authState == AuthState.Authenticated && <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>}
                         <li className="nav-item"><NavLink className="nav-link" to='about'>ABOUT</NavLink></li>
                     </menu>
                 </nav>
