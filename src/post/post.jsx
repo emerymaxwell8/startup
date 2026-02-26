@@ -26,8 +26,25 @@ export function Post({userName}) {
         setPosts(prevPosts => [...prevPosts, userPost].slice(-8));
     }
 
+    function addLike() {
+        setPosts(prevPosts => {
+            if (prevPosts.length === 0) {
+                return prevPosts;
+            }  
+            const randomIndex = Math.floor(Math.random() * prevPosts.length);
+            const updatedPosts = [...prevPosts];
+            updatedPosts[randomIndex].likes += 1;
+            return updatedPosts;
+    })}
+
+
     React.useEffect(() => {
         const interval = setInterval(addPost, 10000);
+        return () => clearInterval(interval);
+    }, []);
+
+    React.useEffect(() => {
+        const interval = setInterval(addLike, 2000);
         return () => clearInterval(interval);
     }, []);
  
