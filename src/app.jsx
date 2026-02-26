@@ -20,20 +20,27 @@ export default function App() {
                     <h1 className="navbar-brand fs-2 text-white">TASTY MEALS</h1>
                     <menu className="navbar-nav">
                         <li className="nav-item"><NavLink className ="nav-link" to=''>HOME</NavLink></li>
-                        {user && <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>}
-                        {user && <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>}
+                        {authState === AuthState.Authenticated  && <li className="nav-item"><NavLink className="nav-link" to='post'>POST</NavLink></li>}
+                        {authState === AuthState.Authenticated && <li className="nav-item"><NavLink className="nav-link" to='favorites'>FAVORITES</NavLink></li>}
                         <li className="nav-item"><NavLink className="nav-link" to='about'>ABOUT</NavLink></li>
                     </menu>
                 </nav>
             </header>
 
             <Routes>
-                <Route path='/' element={<Login 
+                <Route path='/' element={
+                <Login 
+                    userName={userName}
+                    authState={authState}
+                    onAuthChange={(userName, authState) => {
+                    setAuthState(authState);
+                    setUserName(userName);
+                    }}
                 />
                 } 
                 exact 
                 />
-                <Route path='/post' element={<Post />} />
+                <Route path='/post' element={<Post userName={userName} />} />
                 <Route path='/favorites' element={<Favorites />} />
                 <Route path='/about' element={<About />} />
                 <Route path='*' element={<NotFound />} />
