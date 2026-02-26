@@ -9,7 +9,7 @@ export function Login({ userName, authState, onAuthChange }) {
     <main className="row-main">
         <div><img className="picture" alt = "pizza" src="pizza-holder.jpg" width = {300}px /></div>
         <div>
-            <h1 id='title-main' className="title">Welcome!</h1>
+            {authState !== AuthState.Unknown && <h1 id='title-main' className="title">Welcome!</h1>}
             <form method="get" action="post">
                 <div className="mb-3 input-group">
                     <span className="input-group-text">EMAIL</span>
