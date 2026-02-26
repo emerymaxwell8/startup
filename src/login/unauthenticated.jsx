@@ -18,7 +18,13 @@ export function Unauthenticated(props) {
     }
 
     async function registerUser() {
+
+        if (localStorage.getItem('userName')) {
+            setDisplayError('User already exists');
+            return;
+        }
         localStorage.setItem('userName', userName);
+        localStorage.setItem('password', password);
         props.onLogin(userName);
     }
 
