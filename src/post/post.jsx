@@ -2,7 +2,7 @@ import React from 'react';
 import './post.css';
 import {getName, getPlan} from '../service.js';
 
-export function Post() {
+export function Post({userName}) {
     const [posts, setPosts] = React.useState([]);
     let count = 0;
 
@@ -24,7 +24,7 @@ export function Post() {
     return (
     <main className="main-post">
       <div>
-      <h1 id='y-name' className="title">Your Name: <span id="name">nameofuser</span></h1>
+      <h1 id='y-name' className="title">Your Name: <span id="name">{userName}</span></h1>
       </div>
       <form method="get" action = "post">
         <div className = "user-post input-group mb-1 align-items-center gap-3">
