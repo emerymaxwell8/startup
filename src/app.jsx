@@ -24,7 +24,17 @@ export default function App() {
             </header>
 
             <Routes>
-                <Route path='/' element={<Login />} exact />
+                <Route path='/' element={<Login 
+                    userName={userName}
+                    authState={authState}
+                    onAuthChange={(UserName, authState) => {
+                      setAuthState(authState);
+                      setUserName(UserName);
+                    }}
+                />
+                } 
+                exact 
+                />
                 <Route path='/post' element={<Post />} />
                 <Route path='/favorites' element={<Favorites />} />
                 <Route path='/about' element={<About />} />
