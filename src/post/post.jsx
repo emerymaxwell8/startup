@@ -5,7 +5,7 @@ import {getName, getPlan} from '../service.js';
 export function Post() {
     const [posts, setPosts] = React.useState([]);
 
-    function addPosts() {
+    function addPost() {
         const newPost = {
             name: getName(),
             plan: getPlan(), 
@@ -14,8 +14,13 @@ export function Post() {
         }
         setPosts(prevPosts => [...prevPosts, newPost]);
     }
+
+    React.useEffect(() => {
+        const interval = setInterval(addPost, 5000);
+        return () => clearInterval(interval);
+    }, []);
  
-        return (
+    return (
     <main className="main-post">
       <div>
       <h1 id='y-name' className="title">Your Name: <span id="name">nameofuser</span></h1>
