@@ -69,26 +69,10 @@ The process was relatively easy. I accidently loaded my node_module files to git
 
 ## React Part 2: Reactivity
 
-This was a lot of fun to see it all come together. I had to keep remembering to use React state instead of just manipulating the DOM directly.
+There was a lot of information to learn and I'm not sure if I understand a lot of it but I understand the basic principles
 
-Handling the toggling of the checkboxes was particularly interesting.
+.useState allows for a variable to be updated automatically
+localStorage allows access to the local storage (can use .getItem or .setItem)
 
-```jsx
-<div className="input-group sound-button-container">
-  {calmSoundTypes.map((sound, index) => (
-    <div key={index} className="form-check form-switch">
-      <input
-        className="form-check-input"
-        type="checkbox"
-        value={sound}
-        id={sound}
-        onChange={() => togglePlay(sound)}
-        checked={selectedSounds.includes(sound)}
-      ></input>
-      <label className="form-check-label" htmlFor={sound}>
-        {sound}
-      </label>
-    </div>
-  ))}
-</div> wwwmvmvvvkdkdmvlkdsmdkv
+.useEffect was used to use the function provided in .useState (at least in the context I used) - what it does when there are changes
 ```
