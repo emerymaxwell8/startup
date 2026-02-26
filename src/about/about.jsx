@@ -1,7 +1,21 @@
 import React from 'react';
 import './about.css';
+import {getImage} from '../service.js';
 
 export function About() {
+
+  const [image1, setImage1] = React.useState("");
+  const [image2, setImage2] = React.useState("");
+
+  function updateImage() {
+      const image1 = getImage();
+      const image2 = getImage();
+      setImage1(image1);
+      setImage2(image2);
+  }
+
+  React.useEffect(updateImage, []);
+
   return (
     <main className="text-center">
         <h1 className="title">ABOUT</h1>
@@ -14,8 +28,8 @@ export function About() {
             Hope you enjoy all of your future tasty meals!
         </p>
         <div className = "picture-section"> 
-            <img className="picture" width="200px" src="burger-holder.jpg" alt="burger" />
-            <img className="picture" width="200px" src="pasta-holder.jpg" alt="pasta" />
+            <img className="picture" width="200px" src={image1} alt="random image" />
+            <img className="picture" width="200px" src={image2} alt="random image" />
         </div>
     </main>
   );
