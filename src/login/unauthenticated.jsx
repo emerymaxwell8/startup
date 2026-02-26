@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { MessageDialog } from './messageDialog';
+
 
 export function Unauthenticated(props) {
 
@@ -7,8 +9,12 @@ export function Unauthenticated(props) {
     const [password, setPassword] = React.useState('');
 
     async function loginUser() {
-        localStorage.setItem('userName', userName);
-        props.onLogin(userName);
+        if (userName === localStorage.getItem('userName') && password === localStorage.getItem('password')) {
+            props.onLogin(userName);
+        }
+        else {
+            setDisplayError('Invalid username or password');
+        }
     }
 
     async function registerUser() {
@@ -18,6 +24,7 @@ export function Unauthenticated(props) {
 
 
     return (
+        <>
         <form method="get" action="post">
                 <div className="mb-3 input-group">
                     <span className="input-group-text">EMAIL</span>
@@ -30,5 +37,8 @@ export function Unauthenticated(props) {
                 <button  type="submit" className ="me-2 btn btn-dark" onClick={() => loginUser()} disabled={!userName || !password}>LOGIN</button>
                 <button  type="submit" className ="btn btn-dark" onClick={() => registerUser()} disabled={!userName || !password}>REGISTER</button>
             </form>
+
+            <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
+        </>
     )
 }
