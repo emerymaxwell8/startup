@@ -1,8 +1,21 @@
 import React from 'react';
 import './post.css';
+import {getName, getPlan} from '../service.js';
 
 export function Post() {
-  return (
+    const [posts, setPosts] = React.useState([]);
+
+    function addPosts() {
+        const newPost = {
+            name: getName(),
+            plan: getPlan(), 
+            likes: 0,
+            plus: ''
+        }
+        setPosts(prevPosts => [...prevPosts, newPost]);
+    }
+ 
+        return (
     <main className="main-post">
       <div>
       <h1 id='y-name' className="title">Your Name: <span id="name">nameofuser</span></h1>

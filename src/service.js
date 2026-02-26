@@ -7,3 +7,4 @@ export function getImage() {
     const randomIndex = Math.floor(Math.random() * images.length);
     return images[randomIndex];
 }
+
