@@ -1,6 +1,10 @@
 import React from 'react';
 
-export function Login() {
+import { Unauthenticated } from './unauthenticated';
+import { Authenticated } from './authenticated';
+import { AuthState } from './authState';
+
+export function Login({ userName, authState, onAuthChange }) {
   return (
     <main className="row-main">
         <div><img className="picture" alt = "pizza" src="pizza-holder.jpg" width = {300}px /></div>
