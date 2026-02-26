@@ -4,6 +4,7 @@ import {getName, getPlan} from '../service.js';
 
 export function Post() {
     const [posts, setPosts] = React.useState([]);
+    let count = 0;
 
     function addPost() {
         const newPost = {
@@ -11,11 +12,12 @@ export function Post() {
             plan: getPlan(), 
             likes: 0,
         }
-        setPosts(prevPosts => [...prevPosts, newPost]);
+        setPosts(prevPosts => [...prevPosts, newPost].slice(-8));
+        
     }
 
     React.useEffect(() => {
-        const interval = setInterval(addPost, 5000);
+        const interval = setInterval(addPost, 10000);
         return () => clearInterval(interval);
     }, []);
  
@@ -43,7 +45,7 @@ export function Post() {
             </thead>
             <tbody>
                 {posts.map(row => (
-                    <tr key={row.name}>
+                    <tr key={count++}>
                         <td>{row.name}</td>
                         <td>{row.plan}</td>
                         <td>
