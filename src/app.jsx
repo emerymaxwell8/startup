@@ -6,6 +6,7 @@ import { Login } from './login/login';
 import { Post } from './post/post';
 import { Favorites } from './favorites/favorites';
 import { About } from './about/about';
+import { AuthState } from './login/authState';
 
 export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
