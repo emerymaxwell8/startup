@@ -14,14 +14,12 @@ export function Favorites({storedFavorites}) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Nico</td>
-                        <td>making fish tacos!</td>
+                    {storedFavorites.map(row => (
+                    <tr key={row.id}>
+                        <td>{row.name}</td>
+                        <td>{row.plan}</td>
                     </tr>
-                    <tr>
-                        <td>Addie</td>
-                        <td>I love a good rice bowl</td>
-                    </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
