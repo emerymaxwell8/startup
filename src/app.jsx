@@ -41,8 +41,15 @@ export default function App() {
                 } 
                 exact 
                 />
-                <Route path='/post' element={<Post userName={userName} />} />
-                <Route path='/favorites' element={<Favorites />} />
+                <Route path='/post' element={<Post 
+                userName={userName}
+                storedFavorites={storedFavorites}
+                favoritesChange={(favorites) => 
+                setStoredFavorites(favorites)} 
+                />
+                } 
+                />
+                <Route path='/favorites' element={<Favorites storedFavorites={storedFavorites} />} />
                 <Route path='/about' element={<About />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
