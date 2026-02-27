@@ -47,7 +47,7 @@ export default function App() {
                 changeFavorites={(newFavorites) => setStoredFavorites(newFavorites)}
                 />} 
                 />
-                <Route path='/favorites' element={<Favorites/>} />
+                <Route path='/favorites' element={<Favorites storedFavorites={storedFavorites} />} />
                 <Route path='/about' element={<About />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
