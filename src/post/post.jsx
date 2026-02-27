@@ -2,10 +2,9 @@ import React from 'react';
 import './post.css';
 import {getName, getPlan} from '../service.js';
 
-export function Post({userName}, storedFavorites, favoritesChange) {
+export function Post({userName, storedFavorites, changeFavorites}) {
     const [posts, setPosts] = React.useState([]);
     const [userPlan, setUserPlan] = React.useState('');
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     function addPost() {
         const newPost = {
@@ -58,15 +57,19 @@ export function Post({userName}, storedFavorites, favoritesChange) {
             return prevPosts.map(row => {
                 if (row.id === id) {
                     if (!row.isFavorite) {
-                        storedFavorites.push(row);
-                        localStorage.setItem('favorites', JSON.stringify(storedFavorites));
-                        favoritesChange(storedFavorites);
                         return {...row, isFavorite: true};
                     }
                 }
                 return row;
             });
         });
+
+        const clickedRow = posts.find(row => row.id === id && !row.isFavorite);
+        if (clickedRow) {
+            const newFavorite = [...storedFavorites, clickedRow];
+            changeFavorites(newFavorite);
+            localStorage.setItem('favorites', JSON.stringify(newFavorite));
+        }
     }
 
 
