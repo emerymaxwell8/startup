@@ -14,7 +14,11 @@ export function Post({userName, storedFavorites, changeFavorites}) {
             likes: 0,
             isFavorite: false
         }
-        setPosts(prevPosts => [...prevPosts, newPost].slice(-8));
+        setPosts(prevPosts => {
+            const updated = [...prevPosts, newPost].slice(-8);
+            localStorage.setItem('posts', JSON.stringify(updated));
+            return updated;
+        });
         
     }
 
@@ -26,7 +30,11 @@ export function Post({userName, storedFavorites, changeFavorites}) {
             likes: 0,
             isFavorite: false
         }
-        setPosts(prevPosts => [...prevPosts, userPost].slice(-8));
+        setPosts(prevPosts => {
+            const updated = [...prevPosts, userPost].slice(-8);
+            localStorage.setItem('posts', JSON.stringify(updated));
+            return updated;
+        });
     }
 
     function addLike(id) {
@@ -75,13 +83,13 @@ export function Post({userName, storedFavorites, changeFavorites}) {
 
     React.useEffect(() => {
         const interval = setInterval(addPost, 10000);
-        return () => clearInterval(interval);
+        const interval2 = setInterval(addRandomLike, 5000);
+        return () => {
+            clearInterval(interval);
+            clearInterval(interval2);
+        };
     }, []);
 
-    React.useEffect(() => {
-        const interval = setInterval(addRandomLike, 5000);
-        return () => clearInterval(interval);
-    }, []);
  
     return (
     <main className="main-post">
