@@ -5,14 +5,15 @@ import {getName, getPlan} from '../service.js';
 export function Post({userName}) {
     const [posts, setPosts] = React.useState([]);
     const [userPlan, setUserPlan] = React.useState('');
-    let count = 0;
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     function addPost() {
         const newPost = {
             id: Date.now(),
             name: getName(),
             plan: getPlan(), 
-            likes: 0
+            likes: 0,
+            isFavorite: false
         }
         setPosts(prevPosts => [...prevPosts, newPost].slice(-8));
         
@@ -23,7 +24,8 @@ export function Post({userName}) {
             id: Date.now(),
             name: userName, 
             plan: userPlan, 
-            likes: 0
+            likes: 0,
+            isFavorite: false
         }
         setPosts(prevPosts => [...prevPosts, userPost].slice(-8));
     }
@@ -50,6 +52,21 @@ export function Post({userName}) {
             updatedPosts[randomIndex].likes += 1;
             return updatedPosts;
     })}
+
+    function addFavorite(id) {
+        setPosts(prevPosts => {
+            return prevPosts.map(row => {
+                if (row.id === id) {
+                    if (!row.isFavorite) {
+                        storedFavorites.push(row);
+                        localStorage.setItem('favorites', JSON.stringify(storedFavorites));
+                        return {...row, isFavorite: true};
+                    }
+                }
+                return row;
+            });
+        });
+    }
 
 
     React.useEffect(() => {
@@ -104,7 +121,7 @@ export function Post({userName}) {
                             <span>{row.likes}</span>
                         </td>
                         <td>
-                            <button type='button 'className="btn btn-outline-dark">+</button>
+                            <button type='button'className="btn btn-outline-dark" onClick={() => addFavorite(row.id)}>+</button>
                         </td>
                     </tr>
                 ))}

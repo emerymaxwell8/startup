@@ -10,6 +10,7 @@ import { AuthState } from './login/authState';
 
 export default function App() {
       const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+      const [storedFavorites, setStoredFavorites] = React.useState(JSON.parse(localStorage.getItem('favorites')) || []);
       const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
       const [authState, setAuthState] = React.useState(currentAuthState);
   return (

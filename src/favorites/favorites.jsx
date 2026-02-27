@@ -1,7 +1,7 @@
 import React from 'react';
 import './favorites.css';
 
-export function Favorites() {
+export function Favorites({storedFavorites}) {
   return (
     <main className="favorites-main">
         <h1 className="title"> YOUR FAVORITES!</h1>
