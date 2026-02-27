@@ -66,7 +66,7 @@ export function Post({userName, storedFavorites, changeFavorites}) {
 
     React.useEffect(() => {
         const interval = setInterval(() => addPostEntry(getName(), getPlan()), 10000);
-        const interval2 = setInterval(addRandomLike, 5000);
+        const interval2 = setInterval(addRandomLike, 3000);
         return () => {
             clearInterval(interval);
             clearInterval(interval2);
