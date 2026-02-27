@@ -2,7 +2,7 @@ import React from 'react';
 import './post.css';
 import {getName, getPlan} from '../service.js';
 
-export function Post({userName}) {
+export function Post({userName}, storedFavorites, favoritesChange) {
     const [posts, setPosts] = React.useState([]);
     const [userPlan, setUserPlan] = React.useState('');
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -60,6 +60,7 @@ export function Post({userName}) {
                     if (!row.isFavorite) {
                         storedFavorites.push(row);
                         localStorage.setItem('favorites', JSON.stringify(storedFavorites));
+                        favoritesChange(storedFavorites);
                         return {...row, isFavorite: true};
                     }
                 }
