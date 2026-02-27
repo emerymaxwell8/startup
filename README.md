@@ -107,8 +107,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - user username and password, others posts, favorite posts, and their respective likes all saved in local storage. Websocket was represented using a timer to "post" other people's plans. Login and logout were implemented. Images on the about page are changed when page is refreshed to represent a call to a 3rd party.
+- [x] **Hooks** - useState and useEffect are used in most jsx files
 
 ## 🚀 Service deliverable
 
