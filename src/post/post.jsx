@@ -9,6 +9,7 @@ export function Post({userName}) {
 
     function addPost() {
         const newPost = {
+            id: Date.now(),
             name: getName(),
             plan: getPlan(), 
             likes: 0
@@ -19,6 +20,7 @@ export function Post({userName}) {
 
     function addUserPost() {
         const userPost = {
+            id: Date.now(),
             name: userName, 
             plan: userPlan, 
             likes: 0
@@ -26,7 +28,19 @@ export function Post({userName}) {
         setPosts(prevPosts => [...prevPosts, userPost].slice(-8));
     }
 
-    function addLike() {
+    function addLike(id) {
+        setPosts(prevPosts => {
+            return prevPosts.map(row => {
+                if (row.id === id) {
+                    return {...row, likes: row.likes + 1};
+                }
+                return row;
+            });
+        });
+    }
+
+
+    function addRandomLike() {
         setPosts(prevPosts => {
             if (prevPosts.length === 0) {
                 return prevPosts;
@@ -44,7 +58,7 @@ export function Post({userName}) {
     }, []);
 
     React.useEffect(() => {
-        const interval = setInterval(addLike, 2000);
+        const interval = setInterval(addRandomLike, 5000);
         return () => clearInterval(interval);
     }, []);
  
@@ -70,11 +84,11 @@ export function Post({userName}) {
             </thead>
             <tbody>
                 {posts.map(row => (
-                    <tr key={count++}>
+                    <tr key={row.id}>
                         <td>{row.name}</td>
                         <td>{row.plan}</td>
                         <td>
-                            <button type='button' className = 'me-2 btn btn-outline-danger'>
+                            <button type='button' className = 'me-2 btn btn-outline-danger' onClick={() => addLike(row.id)}>
                                 <svg width="15" height="15" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M60 100
