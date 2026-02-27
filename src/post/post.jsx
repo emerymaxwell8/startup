@@ -6,35 +6,18 @@ export function Post({userName, storedFavorites, changeFavorites}) {
     const [posts, setPosts] = React.useState([]);
     const [userPlan, setUserPlan] = React.useState('');
 
-    function addPost() {
-        const newPost = {
-            id: Date.now(),
-            name: getName(),
-            plan: getPlan(), 
-            likes: 0,
-            isFavorite: false
-        }
-        setPosts(prevPosts => {
-            const updated = [...prevPosts, newPost].slice(-8);
-            localStorage.setItem('posts', JSON.stringify(updated));
-            return updated;
-        });
-        
-    }
+    React.useEffect(() => {
+    const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+    setPosts(savedPosts);
+    }, []);
 
-    function addUserPost() {
-        const userPost = {
-            id: Date.now(),
-            name: userName, 
-            plan: userPlan, 
-            likes: 0,
-            isFavorite: false
-        }
-        setPosts(prevPosts => {
-            const updated = [...prevPosts, userPost].slice(-8);
-            localStorage.setItem('posts', JSON.stringify(updated));
-            return updated;
-        });
+    function addPostEntry(name, plan) {
+    const post = { id: Date.now(), name, plan, likes: 0, isFavorite: false };
+    setPosts(prev => {
+        const updated = [...prev, post].slice(-8);
+        localStorage.setItem('posts', JSON.stringify(updated));
+        return updated;
+    });
     }
 
     function addLike(id) {
@@ -82,7 +65,7 @@ export function Post({userName, storedFavorites, changeFavorites}) {
 
 
     React.useEffect(() => {
-        const interval = setInterval(addPost, 10000);
+        const interval = setInterval(() => addPostEntry(getName(), getPlan()), 10000);
         const interval2 = setInterval(addRandomLike, 5000);
         return () => {
             clearInterval(interval);
@@ -99,7 +82,7 @@ export function Post({userName, storedFavorites, changeFavorites}) {
         <div className = "user-post input-group mb-1 align-items-center gap-3">
             <span className="input-group-text">Plan for dinner?</span>
             <input id = 'prompt' className="form-control" type="text" onChange={(e) => setUserPlan(e.target.value)}placeholder="Write here..." />
-            <button type="submit" className="btn btn-dark" onClick={() => addUserPost()}>POST</button>
+            <button type="submit" className="btn btn-dark" onClick={() => addPostEntry(userName, userPlan)}>POST</button>
         </div>
       <h1 className="title">OTHERS:</h1>
         <table className="others table table-primary table-striped-columns">
