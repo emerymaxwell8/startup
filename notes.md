@@ -75,4 +75,9 @@ There was a lot of information to learn and I'm not sure if I understand a lot o
 localStorage allows access to the local storage (can use .getItem or .setItem)
 
 .useEffect was used to use the function provided in .useState (at least in the context I used) - what it does when there are changes
-```
+
+can use .map to put things in an array to a table
+
+It was so cool seeing things change in real time and react to actions. I'm so excited to see how this website turns out in the future
+
+
