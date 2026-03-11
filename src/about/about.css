@@ -14,6 +14,13 @@ p {
     gap: 100px;
 }
 
+.picture {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
 @media (max-width: 768px) {
   .picture-section {
     gap:0px;
