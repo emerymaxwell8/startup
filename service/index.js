@@ -72,6 +72,16 @@ apiRouter.post('/posts', verifyAuth, (req, res) => {
   res.send(posts);
 });
 
+// GetFavorites
+apiRouter.get('/favorites', verifyAuth, (_req, res) => {
+  res.send(favorites);
+});
+
+// CreateFavorite
+apiRouter.post('/favorites', verifyAuth, (req, res) => {
+  favorites = updateFavorites(req.body);
+  res.send(favorites);
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
