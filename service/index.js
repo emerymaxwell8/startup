@@ -4,16 +4,22 @@ const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 const app = express();
 
+const authCookieName = 'token';
+
 app.use(express.json());
 
 let users = [];
 let posts = [];
 let favorites = [];
 
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
+
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.static('public'));
+
 let apiRouter = express.Router();
 app.use(`/api`, apiRouter);
-
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
