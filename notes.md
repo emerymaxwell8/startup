@@ -80,4 +80,15 @@ can use .map to put things in an array to a table
 
 It was so cool seeing things change in real time and react to actions. I'm so excited to see how this website turns out in the future
 
+## Service
+
+port numbers are referred to to access multiple services
+frontend - html, css, JavaScript
+access endpoints with the fetch function
+
+fetch('https://quote.cs260.click')
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(jsonResponse);
+  });
 
