@@ -23,7 +23,10 @@ export function Post({userName, storedFavorites, changeFavorites}) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(post),
+
         });
+
+        setPosts(prevPosts => [...prevPosts, post]);
 
     }
 
@@ -71,14 +74,14 @@ export function Post({userName, storedFavorites, changeFavorites}) {
     }
 
 
-    React.useEffect(() => {
-        const interval = setInterval(() => addPostEntry(getName(), getPlan()), 10000);
-        const interval2 = setInterval(addRandomLike, 3000);
-        return () => {
-            clearInterval(interval);
-            clearInterval(interval2);
-        };
-    }, []);
+    // React.useEffect(() => {
+    //     const interval = setInterval(() => addPostEntry(getName(), getPlan()), 10000);
+    //     const interval2 = setInterval(addRandomLike, 3000);
+    //     return () => {
+    //         clearInterval(interval);
+    //         clearInterval(interval2);
+    //     };
+    // }, []);
 
  
     return (
