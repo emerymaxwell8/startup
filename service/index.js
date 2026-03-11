@@ -121,7 +121,10 @@ async function updatePosts(newPost) {
 }
 
 async function updateFavorites(newFavorite) {
-  favorites.push(newFavorite);
+  favorites.splice(0, 0, newFavorite);
+  if (favorites.length > 10) {
+    favorites.length = 10;
+  }
   return favorites;
 }
 
