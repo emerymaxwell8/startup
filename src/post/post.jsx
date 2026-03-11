@@ -7,8 +7,11 @@ export function Post({userName, storedFavorites, changeFavorites}) {
     const [userPlan, setUserPlan] = React.useState('');
 
     React.useEffect(() => {
-    const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
-    setPosts(savedPosts);
+        fetch('/api/posts')
+            .then((response) => response.json())
+            .then((posts) => {
+                setPosts(posts);
+            });
     }, []);
 
     async function addPostEntry(name, plan) {
@@ -21,7 +24,7 @@ export function Post({userName, storedFavorites, changeFavorites}) {
             },
             body: JSON.stringify(post),
         });
-        
+
     }
 
     function addLike(id) {
