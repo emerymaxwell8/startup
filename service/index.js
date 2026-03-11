@@ -61,6 +61,17 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
+// GetPosts
+apiRouter.get('/posts', verifyAuth, (_req, res) => {
+  res.send(posts);
+});
+
+// CreatePost
+apiRouter.post('/posts', verifyAuth, (req, res) => {
+  posts = updatePosts(req.body);
+  res.send(posts);
+});
+
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
