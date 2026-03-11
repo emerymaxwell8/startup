@@ -11,13 +11,17 @@ export function Post({userName, storedFavorites, changeFavorites}) {
     setPosts(savedPosts);
     }, []);
 
-    function addPostEntry(name, plan) {
-    const post = { id: Date.now(), name, plan, likes: 0, isFavorite: false };
-    setPosts(prev => {
-        const updated = [...prev, post].slice(-8);
-        localStorage.setItem('posts', JSON.stringify(updated));
-        return updated;
-    });
+    async function addPostEntry(name, plan) {
+        const post = { id: Date.now(), name, plan, likes: 0, isFavorite: false };
+
+        await fetch('/api/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(post),
+        });
+        
     }
 
     function addLike(id) {
