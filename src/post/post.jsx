@@ -12,7 +12,7 @@ export function Post({userName, storedFavorites, changeFavorites}) {
             .then((posts) => {
                 setPosts(posts);
             });
-    }, []);
+    });
 
     async function addPostEntry(name, plan) {
         const post = { id: Date.now(), name, plan, likes: 0, isFavorite: false };
