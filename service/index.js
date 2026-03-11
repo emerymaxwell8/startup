@@ -8,6 +8,7 @@ app.use(express.json());
 
 let users = [];
 let posts = [];
+let favorites = [];
 
 let apiRouter = express.Router();
 app.use(`/api`, apiRouter);
