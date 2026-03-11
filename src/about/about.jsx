@@ -7,14 +7,24 @@ export function About() {
   const [image1, setImage1] = React.useState("");
   const [image2, setImage2] = React.useState("");
 
-  function updateImage() {
-      const image1 = getImage();
-      const image2 = getImage();
-      setImage1(image1);
-      setImage2(image2);
-  }
+  React.useEffect(() => {
+    const foodCategories = ["biryani", "burger", "dessert", "idly", "pasta", "pizza", "rice", "samosa"];
+    const randomCategory1 = foodCategories[Math.floor(Math.random() * foodCategories.length)];
+    const randomCategory2 = foodCategories[Math.floor(Math.random() * foodCategories.length)];
+    fetch(`https://foodish-api.com/api/images/${randomCategory1}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setImage1(data.image);
+      })
+      .catch();
 
-  React.useEffect(updateImage, []);
+      fetch(`https://foodish-api.com/api/images/${randomCategory2}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setImage2(data.image);
+      })
+      .catch();
+  }, []);
 
   return (
     <main className="text-center">
