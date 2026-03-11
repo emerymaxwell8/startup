@@ -9,30 +9,31 @@ export function Unauthenticated(props) {
     const [password, setPassword] = React.useState('');
     const [displayError, setDisplayError] = React.useState(null);
 
-    async function loginUser() {
-        const storedUser = localStorage.getItem('userName');
-        const storedPassword = localStorage.getItem('password');
+  async function loginUser() {
+    loginOrCreate(`/api/auth/login`);
+  }
 
-        if (storedUser === userName && storedPassword === password) {
-            navigate('/post');
-            props.onLogin(userName);
-        } else {
-            setDisplayError("Invalid username or password");
-            return;
-        }
+  async function registerUser() {
+    loginOrCreate(`/api/auth/create`);
+  }
+
+  async function loginOrCreate(endpoint) {
+    const response = await fetch(endpoint, {
+      method: 'post',
+      body: JSON.stringify({ username: userName, password: password }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response?.status === 200) {
+      localStorage.setItem('userName', userName);
+      props.onLogin(userName);
+      navigate('/post'); // Redirect to the home page after successful login or registration
+    } else {
+      const body = await response.json();
+      setDisplayError(`⚠ Error: ${body.msg}`);
     }
-
-    async function registerUser() {
-
-        if (localStorage.getItem('userName')) {
-            setDisplayError("User already exists");
-            return;
-        }
-        localStorage.setItem('userName', userName);
-        localStorage.setItem('password', password);
-        navigate('/post');
-        props.onLogin(userName);
-    }
+  }
 
 
     return (
