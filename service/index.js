@@ -14,8 +14,16 @@ app.use(`/api`, apiRouter);
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
-app.get(/.*/, (_req, res) => {
-  res.send({ msg: 'Simon service' });
+// CreateAuth a new user
+apiRouter.post('/auth/create', async (req, res) => {
+  if (await findUser('username', req.body.username)) {
+    res.status(409).send({ msg: 'Existing user' });
+  } else {
+    const user = await createUser(req.body.username, req.body.password);
+
+    setAuthCookie(res, user.token);
+    res.send({ username: user.username });
+  }
 });
 
 app.listen(port, () => {
