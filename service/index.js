@@ -112,6 +112,19 @@ async function findUser(field, value) {
   return users.find((u) => u[field] === value);
 }
 
+async function updatePosts(newPost) {
+  posts.splice(0, 0, newPost);
+  if (posts.length > 10) {
+    posts.length = 10;
+  }
+  return posts;
+}
+
+async function updateFavorites(newFavorite) {
+  favorites.push(newFavorite);
+  return favorites;
+}
+
 function setAuthCookie(res, authToken) {
   res.cookie(authCookieName, authToken, {
     secure: true,
