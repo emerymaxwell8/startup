@@ -1,12 +1,10 @@
-const express = require('express');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
+const express = require('express');
 const uuid = require('uuid');
 const app = express();
 
 const authCookieName = 'token';
-
-app.use(express.json());
 
 let users = [];
 let posts = [];
@@ -89,6 +87,7 @@ apiRouter.post('/favorites', verifyAuth, (req, res) => {
   res.send(favorites);
 });
 
+
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
@@ -118,7 +117,7 @@ async function findUser(field, value) {
   return users.find((u) => u[field] === value);
 }
 
-async function updatePosts(newPost) {
+function updatePosts(newPost) {
   posts.splice(0, 0, newPost);
   if (posts.length > 10) {
     posts.length = 10;
