@@ -1,7 +1,19 @@
 import React from 'react';
 import './favorites.css';
 
+
 export function Favorites() {
+
+const [favorites, setFavorites] = React.useState([]);
+
+React.useEffect(() => {
+    fetch('/api/favorites')
+        .then((response) => response.json())
+        .then((favorites) => {
+        setFavorites(favorites);
+        });
+    }, []);
+
   return (
     <main className="favorites-main">
         <h1 className="title"> YOUR FAVORITES!</h1>
@@ -14,7 +26,7 @@ export function Favorites() {
                     </tr>
                 </thead>
                 <tbody>
-                    {storedFavorites.map(row => (
+                    {favorites.map(row => (
                     <tr key={row.id}>
                         <td>{row.name}</td>
                         <td>{row.plan}</td>
