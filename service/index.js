@@ -139,7 +139,7 @@ function updateLikes(id) {
   return post;
 }
 
-async function updateFavorites(newFavorite) {
+function updateFavorites(newFavorite) {
   favorites.splice(0, 0, newFavorite);
   if (favorites.length > 10) {
     favorites.length = 10;

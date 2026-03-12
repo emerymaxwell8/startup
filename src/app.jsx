@@ -10,7 +10,6 @@ import { AuthState } from './login/authState';
 
 export default function App() {
       const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
-      const [storedFavorites, setStoredFavorites] = React.useState(JSON.parse(localStorage.getItem('favorites')) || []);
       const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
       const [authState, setAuthState] = React.useState(currentAuthState);
   return (
@@ -43,11 +42,9 @@ export default function App() {
                 />
                 <Route path='/post' element={<Post 
                 userName={userName}
-                storedFavorites={storedFavorites}
-                changeFavorites={(newFavorites) => setStoredFavorites(newFavorites)}
                 />} 
                 />
-                <Route path='/favorites' element={<Favorites storedFavorites={storedFavorites} />} />
+                <Route path='/favorites' element={<Favorites  />} />
                 <Route path='/about' element={<About />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
