@@ -2,7 +2,7 @@ import React from 'react';
 import './post.css';
 import {getName, getPlan} from '../service.js';
 
-export function Post({userName, storedFavorites, changeFavorites}) {
+export function Post({userName}) {
     const [posts, setPosts] = React.useState([]);
     const [userPlan, setUserPlan] = React.useState('');
 
@@ -47,6 +47,16 @@ export function Post({userName, storedFavorites, changeFavorites}) {
         );
     }
 
+    
+    async function addFavorite(id) {
+        const res = await fetch('/api/favorites', {
+            method: 'POST',
+            headers: {  'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ id }),
+        });
+    }
+
 
     function addRandomLike() {
         setPosts(prevPosts => {
@@ -58,26 +68,6 @@ export function Post({userName, storedFavorites, changeFavorites}) {
             updatedPosts[randomIndex].likes += 1;
             return updatedPosts;
     })}
-
-    function addFavorite(id) {
-        setPosts(prevPosts => {
-            return prevPosts.map(row => {
-                if (row.id === id) {
-                    if (!row.isFavorite) {
-                        return {...row, isFavorite: true};
-                    }
-                }
-                return row;
-            });
-        });
-
-        const clickedRow = posts.find(row => row.id === id && !row.isFavorite);
-        if (clickedRow) {
-            const newFavorite = [...storedFavorites, clickedRow];
-            changeFavorites(newFavorite);
-            localStorage.setItem('favorites', JSON.stringify(newFavorite));
-        }
-    }
 
 
     // React.useEffect(() => {

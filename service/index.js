@@ -89,7 +89,7 @@ apiRouter.get('/favorites', verifyAuth, (_req, res) => {
 
 // CreateFavorite
 apiRouter.post('/favorites', verifyAuth, (req, res) => {
-  favorites = updateFavorites(req.body);
+  favorites = updateFavorites(req.body.id);
   res.send(favorites);
 });
 
@@ -139,10 +139,13 @@ function updateLikes(id) {
   return post;
 }
 
-function updateFavorites(newFavorite) {
-  favorites.splice(0, 0, newFavorite);
-  if (favorites.length > 10) {
-    favorites.length = 10;
+function updateFavorites(id) {
+  const post = posts.find((p) => p.id === id);
+  if (post) {
+    favorites.splice(0, 0, post);
+    if (favorites.length > 10) {
+      favorites.length = 10;
+    }
   }
   return favorites;
 }
