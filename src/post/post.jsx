@@ -7,12 +7,12 @@ export function Post({userName, storedFavorites, changeFavorites}) {
     const [userPlan, setUserPlan] = React.useState('');
 
     React.useEffect(() => {
-        fetch('/api/posts')
-            .then((response) => response.json())
-            .then((posts) => {
-                setPosts(posts);
-            });
-    });
+    fetch('/api/posts')
+        .then((response) => response.json())
+        .then((posts) => {
+        setPosts(posts || []);
+        });
+    }, []);
 
     async function addPostEntry(name, plan) {
         const post = { id: Date.now(), name, plan, likes: 0, isFavorite: false };
@@ -22,11 +22,12 @@ export function Post({userName, storedFavorites, changeFavorites}) {
             headers: {
                 'Content-Type': 'application/json',
             },
+            credentials: 'include',
             body: JSON.stringify(post),
 
         });
 
-        setPosts(prevPosts => [...prevPosts, post]);
+        setPosts(prevPosts => Array.isArray(prevPosts) ? [...prevPosts, post] : [post]);
 
     }
 
@@ -105,7 +106,7 @@ export function Post({userName, storedFavorites, changeFavorites}) {
                 </tr>
             </thead>
             <tbody>
-                {posts.map(row => (
+                {posts && posts.length ? (posts.map((row) => (
                     <tr key={row.id}>
                         <td>{row.name}</td>
                         <td>{row.plan}</td>
@@ -129,7 +130,11 @@ export function Post({userName, storedFavorites, changeFavorites}) {
                             <button type='button'className="btn btn-outline-dark" onClick={() => addFavorite(row.id)}>+</button>
                         </td>
                     </tr>
-                ))}
+                )) ) : (
+                    <tr>
+                        <td colSpan="4">No posts yet. Be the first to share your dinner plans!</td>
+                    </tr>
+                )}
     
             </tbody>
         </table> 
