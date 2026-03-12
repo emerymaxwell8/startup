@@ -59,18 +59,19 @@ export function Post({userName}) {
     }
 
 
-    function addRandomLike() {
-        if (posts.length > 0) {
-        const randomIndex = Math.floor(Math.random() * posts.length);
-        const postId = posts[randomIndex].id;
-        addLike(postId);
-        }
-    }
-
-
     React.useEffect(() => {
-        const interval = setInterval(() => addPostEntry(getName(), getPlan()), 10000);
-        const interval2 = setInterval(addRandomLike, 3000);
+        const interval = setInterval(async () => await addPostEntry(getName(), getPlan()), 10000);
+        
+        const interval2 = setInterval(async () => {
+            const res = await fetch('/api/posts', {credentials: 'include'});
+            const updatedPosts = await res.json();
+            if (updatedPosts.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * updatedPosts.length);
+            const postId = updatedPosts[randomIndex].id;   
+            await addLike(postId);
+        }, 3000);
+        
+        
         return () => {
             clearInterval(interval);
             clearInterval(interval2);

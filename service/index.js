@@ -125,8 +125,8 @@ async function findUser(field, value) {
 
 function updatePosts(newPost) {
   posts.splice(0, 0, newPost);
-  if (posts.length > 10) {
-    posts.length = 10;
+  if (posts.length > 8) {
+    posts.length = 8;
   }
   return posts;
 }
