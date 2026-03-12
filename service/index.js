@@ -76,6 +76,12 @@ apiRouter.post('/posts', verifyAuth, (req, res) => {
   res.send(posts);
 });
 
+// AddLike
+apiRouter.post('/posts/like', verifyAuth, (req, res) => {
+  const updatedPost = updateLikes(req.body.id);
+  res.send(updatedPost);
+});
+
 // GetFavorites
 apiRouter.get('/favorites', verifyAuth, (_req, res) => {
   res.send(favorites);
@@ -123,6 +129,14 @@ function updatePosts(newPost) {
     posts.length = 10;
   }
   return posts;
+}
+
+function updateLikes(id) {
+  const post = posts.find((p) => p.id === id);
+  if (post) {
+    post.likes += 1;
+  }
+  return post;
 }
 
 async function updateFavorites(newFavorite) {

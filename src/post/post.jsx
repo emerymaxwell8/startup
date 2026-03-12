@@ -10,7 +10,7 @@ export function Post({userName, storedFavorites, changeFavorites}) {
     fetch('/api/posts')
         .then((response) => response.json())
         .then((posts) => {
-        setPosts(posts || []);
+        setPosts(posts);
         });
     }, []);
 
@@ -31,15 +31,20 @@ export function Post({userName, storedFavorites, changeFavorites}) {
 
     }
 
-    function addLike(id) {
-        setPosts(prevPosts => {
-            return prevPosts.map(row => {
-                if (row.id === id) {
-                    return {...row, likes: row.likes + 1};
-                }
-                return row;
-            });
+    async function addLike(id) { 
+        const res = await fetch('/api/posts/like', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify({ id }),
         });
+
+        const updatedPost = await res.json();
+
+        setPosts(prevPosts => prevPosts.map(row => row.id === updatedPost.id ? updatedPost : row)
+        );
     }
 
 
