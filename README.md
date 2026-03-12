@@ -114,12 +114,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - Installed Express. Default port on 4000.
+- [x] **Static middleware for frontend** - middleware endpoints in service/index
+- [x] **Calls to third party endpoints** - About page calls to an API that returns random food images [Public API Link](https://github.com/surhud004/Foodish#readme) 
+- [x] **Backend service endpoints** - endpoints in service/index for auth, posts, and favorites
+- [x] **Frontend calls service endpoints** - mocked functionality in frontend compenentants replaced with calls to the service
+- [x] **Supports registration, login, logout, and restricted endpoint** - supports for registration, login, logout and restricted access to posts, posting, and favorites (using verifyAuth)
 
 ## 🚀 DB deliverable
 
