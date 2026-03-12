@@ -92,3 +92,9 @@ fetch('https://quote.cs260.click')
     console.log(jsonResponse);
   });
 
+  async functions return a promise - need to use await to access them
+
+  make sure the app.use() are in order
+
+  I had some complications because of things that were wrong in my backend code but once I started debugging on both the frontend and backend, I found them. I need to fix some things that are slow but so far my service is working!
+

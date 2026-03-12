@@ -65,6 +65,7 @@ export function Post({userName}) {
         const interval2 = setInterval(async () => {
             const res = await fetch('/api/posts', {credentials: 'include'});
             const updatedPosts = await res.json();
+            
             if (updatedPosts.length === 0) return;
             const randomIndex = Math.floor(Math.random() * updatedPosts.length);
             const postId = updatedPosts[randomIndex].id;   
