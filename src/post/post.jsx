@@ -6,12 +6,16 @@ export function Post({userName}) {
     const [posts, setPosts] = React.useState([]);
     const [userPlan, setUserPlan] = React.useState('');
 
+    function fetchPosts() {
+        fetch('/api/posts')
+            .then((response) => response.json())
+            .then((posts) => {
+            setPosts(posts);
+            });
+    }
+
     React.useEffect(() => {
-    fetch('/api/posts')
-        .then((response) => response.json())
-        .then((posts) => {
-        setPosts(posts);
-        });
+        fetchPosts();
     }, []);
 
     async function addPostEntry(name, plan) {
@@ -27,7 +31,7 @@ export function Post({userName}) {
 
         });
 
-        setPosts(prevPosts => Array.isArray(prevPosts) ? [...prevPosts, post] : [post]);
+        fetchPosts();
 
     }
 
@@ -41,10 +45,7 @@ export function Post({userName}) {
             body: JSON.stringify({ id }),
         });
 
-        const updatedPost = await res.json();
-
-        setPosts(prevPosts => prevPosts.map(row => row.id === updatedPost.id ? updatedPost : row)
-        );
+        fetchPosts();
     }
 
     
@@ -59,25 +60,22 @@ export function Post({userName}) {
 
 
     function addRandomLike() {
-        setPosts(prevPosts => {
-            if (prevPosts.length === 0) {
-                return prevPosts;
-            }  
-            const randomIndex = Math.floor(Math.random() * prevPosts.length);
-            const updatedPosts = [...prevPosts];
-            updatedPosts[randomIndex].likes += 1;
-            return updatedPosts;
-    })}
+        if (posts.length > 0) {
+        const randomIndex = Math.floor(Math.random() * posts.length);
+        const postId = posts[randomIndex].id;
+        addLike(postId);
+        }
+    }
 
 
-    // React.useEffect(() => {
-    //     const interval = setInterval(() => addPostEntry(getName(), getPlan()), 10000);
-    //     const interval2 = setInterval(addRandomLike, 3000);
-    //     return () => {
-    //         clearInterval(interval);
-    //         clearInterval(interval2);
-    //     };
-    // }, []);
+    React.useEffect(() => {
+        const interval = setInterval(() => addPostEntry(getName(), getPlan()), 10000);
+        const interval2 = setInterval(addRandomLike, 3000);
+        return () => {
+            clearInterval(interval);
+            clearInterval(interval2);
+        };
+    }, []);
 
  
     return (
