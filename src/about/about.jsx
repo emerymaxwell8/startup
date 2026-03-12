@@ -1,11 +1,10 @@
 import React from 'react';
 import './about.css';
-import {getImage} from '../service.js';
 
 export function About() {
 
-  const [image1, setImage1] = React.useState("");
-  const [image2, setImage2] = React.useState("");
+  const [image1, setImage1] = React.useState(null);
+  const [image2, setImage2] = React.useState(null);
 
   React.useEffect(() => {
     const foodCategories = ["biryani", "burger", "dessert", "idly", "pasta", "pizza", "rice", "samosa"];
