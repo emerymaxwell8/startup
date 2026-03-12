@@ -141,8 +141,9 @@ function updateLikes(id) {
 
 function updateFavorites(id) {
   const post = posts.find((p) => p.id === id);
-  if (post) {
+  if (post && !post.isFavorite) {
     favorites.splice(0, 0, post);
+    post.isFavorite = true;
     if (favorites.length > 10) {
       favorites.length = 10;
     }
