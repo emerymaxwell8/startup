@@ -98,3 +98,7 @@ fetch('https://quote.cs260.click')
 
   I had some complications because of things that were wrong in my backend code but once I started debugging on both the frontend and backend, I found them. I need to fix some things that are slow but so far my service is working!
 
+  ## Database
+  
+  
+
