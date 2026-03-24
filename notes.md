@@ -100,5 +100,9 @@ fetch('https://quote.cs260.click')
 
   ## Database
   
-  
+  to insert - .insertOne()
+  to find = .find()
+    to limit results (limit: number)
+  to update = .updateMany()
+  to delete = .deleteOne()
 
