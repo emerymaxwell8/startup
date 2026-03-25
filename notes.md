@@ -106,3 +106,6 @@ fetch('https://quote.cs260.click')
   to update = .updateMany()
   to delete = .deleteOne()
 
+I decided to switch favorites to be personal to each user so I had some complications with that. I had to make sure to specify the specific parts of the user to use for favorites. 
+
+Other than that, using the database was very simple. 
