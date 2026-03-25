@@ -39,7 +39,7 @@ async function updateUserRemoveAuth(user) {
 }
 
  function getPosts() {
-  return postCollection.find().limit(8).toArray();
+  return postCollection.find().sort({ _id: -1 }).limit(8).toArray();
 }
 
 async function addPost(post) {
@@ -63,7 +63,7 @@ async function addFavorite(id) {
 }
 
 function getFavorites() {
-  return favoriteCollection.find().limit(8).toArray();
+  return favoriteCollection.find().sort({ _id: -1 }).limit(8).toArray();
 }
 
 module.exports = {
