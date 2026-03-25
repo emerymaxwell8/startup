@@ -21,3 +21,7 @@ const favoriteCollection = db.collection('favorite');
 async function updateUser(user) {
   await userCollection.updateOne({username: user.username}, {$set: user});
 }
+
+async function updateUserRemoveAuth(user) {
+  await userCollection.updateOne({username: user.username}, {$unset: {token: 1}});
+}
