@@ -17,3 +17,7 @@ const favoriteCollection = db.collection('favorite');
     process.exit(1);
   }
 })();
+
+async function updateUser(user) {
+  await userCollection.updateOne({username: user.username}, {$set: user});
+}
