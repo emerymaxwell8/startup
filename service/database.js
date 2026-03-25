@@ -62,7 +62,7 @@ async function addFavorite(id, user) {
 
 async function getFavorites(username) {
     const userFavorites = await userCollection.findOne({username: username}, { projection: { favorites: {$slice: -8}, _id: 0 } });
-    return userFavorites ? userFavorites.favorites : [];
+    return userFavorites ? userFavorites.favorites : [];w
 
 }
 
