@@ -45,3 +45,11 @@ async function updateUserRemoveAuth(user) {
 async function addPost(post) {
   await postCollection.insertOne(post);
 }
+
+async function addLike(id) {
+  const post = await postCollection.findOne({ id: id });
+  if (post) {
+    post.likes += 1;
+    await postCollection.updateOne({ id: id }, { $set: { likes: post.likes } });
+  } 
+}
