@@ -69,6 +69,8 @@ function getFavorites() {
 module.exports = {
   addUser,
   getUser,
+  updateUser,
+  updateUserRemoveAuth,
   getUserByToken,
   getPosts,
   addPost,
