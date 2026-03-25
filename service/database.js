@@ -7,3 +7,13 @@ const db = client.db('tasty-meals');
 const userCollection = db.collection('user');
 const postCollection = db.collection('post');
 const favoriteCollection = db.collection('favorite');
+
+(async function testConnection() {
+  try {
+    await db.command({ ping: 1 });
+    console.log(`Connect to database`);
+  } catch (ex) {
+    console.log(`Unable to connect to database with ${url} because ${ex.message}`);
+    process.exit(1);
+  }
+})();
