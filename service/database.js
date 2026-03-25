@@ -22,12 +22,12 @@ async function addUser(user) {
   await userCollection.insertOne(user);
 }
 
-async function getUser(username) {
-  return await userCollection.findOne({ username: username });
+function getUser(username) {
+  return userCollection.findOne({ username: username });
 }
 
-async function getUserByToken(token) {
-  return await userCollection.findOne({ token: token });
+ function getUserByToken(token) {
+  return userCollection.findOne({ token: token });
 }
 
 async function updateUser(user) {
@@ -36,4 +36,8 @@ async function updateUser(user) {
 
 async function updateUserRemoveAuth(user) {
   await userCollection.updateOne({username: user.username}, {$unset: {token: 1}});
+}
+
+ function getPosts() {
+  return postCollection.find().limit(8).toArray();
 }
