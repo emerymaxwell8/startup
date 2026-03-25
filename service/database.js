@@ -41,3 +41,7 @@ async function updateUserRemoveAuth(user) {
  function getPosts() {
   return postCollection.find().limit(8).toArray();
 }
+
+async function addPost(post) {
+  await postCollection.insertOne(post);
+}
