@@ -125,32 +125,17 @@ async function findUser(field, value) {
   return DB.getUser(value);
 }
 
-function updatePosts(newPost) {
-  posts.splice(0, 0, newPost);
-  if (posts.length > 8) {
-    posts.length = 8;
-  }
-  return posts;
+async function updatePosts(newPost) {
+  await DB.addPost(newPost);
+  return DB.getPosts();
 }
 
 function updateLikes(id) {
-  const post = posts.find((p) => p.id === id);
-  if (post) {
-    post.likes += 1;
-  }
-  return post;
+  return DB.addLike(id);
 }
 
 function updateFavorites(id) {
-  const post = posts.find((p) => p.id === id);
-  if (post && !post.isFavorite) {
-    favorites.splice(0, 0, post);
-    post.isFavorite = true;
-    if (favorites.length > 10) {
-      favorites.length = 10;
-    }
-  }
-  return favorites;
+  return DB.addFavorite(id);
 }
 
 function setAuthCookie(res, authToken) {
