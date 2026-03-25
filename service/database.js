@@ -6,7 +6,6 @@ const client = new MongoClient(url);
 const db = client.db('tasty-meals');
 const userCollection = db.collection('user');
 const postCollection = db.collection('post');
-const favoriteCollection = db.collection('favorite');
 
 (async function testConnection() {
   try {
@@ -54,16 +53,17 @@ async function addLike(id) {
   } 
 }
 
-async function addFavorite(id) {
+async function addFavorite(id, user) {
   const post = await postCollection.findOne({ id: id });
-  if (post && !post.isFavorite) {
-    await favoriteCollection.insertOne(post);
-    await postCollection.updateOne({ id: id }, { $set: { isFavorite: true } });
+  if (post) {
+    await userCollection.updateOne({ username: user.username }, { $addToSet: { favorites: { id: post.id, name: post.name, plan: post.plan } } });
   }     
 }
 
-function getFavorites() {
-  return favoriteCollection.find().sort({ _id: -1 }).limit(8).toArray();
+async function getFavorites(username) {
+    const userFavorites = await userCollection.findOne({username: username}, { projection: { favorites: {$slice: -8}, _id: 0 } });
+    return userFavorites ? userFavorites.favorites : [];
+
 }
 
 module.exports = {

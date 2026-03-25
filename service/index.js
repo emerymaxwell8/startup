@@ -81,14 +81,16 @@ apiRouter.post('/posts/like', verifyAuth, async (req, res) => {
 });
 
 // GetFavorites
-apiRouter.get('/favorites', verifyAuth, async (_req, res) => {
-  const favorites = await DB.getFavorites();
+apiRouter.get('/favorites', verifyAuth, async (req, res) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
+  const favorites = await DB.getFavorites(user.username );
   res.send(favorites);
 });
 
 // CreateFavorite
 apiRouter.post('/favorites', verifyAuth, async (req, res) => {
-  const favorites = await updateFavorites(req.body.id);
+  const user = await findUser('token', req.cookies[authCookieName]);
+  const favorites = await updateFavorites(req.body.id, user);
   res.send(favorites);
 });
 
@@ -134,8 +136,8 @@ function updateLikes(id) {
   return DB.addLike(id);
 }
 
-function updateFavorites(id) {
-  return DB.addFavorite(id);
+async function updateFavorites(id, user) {
+  return await DB.addFavorite(id, user);
 }
 
 function setAuthCookie(res, authToken) {
