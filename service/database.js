@@ -53,3 +53,11 @@ async function addLike(id) {
     await postCollection.updateOne({ id: id }, { $set: { likes: post.likes } });
   } 
 }
+
+async function addFavorite(id) {
+  const post = await postCollection.findOne({ id: id });
+  if (post && !post.isFavorite) {
+    await favoriteCollection.insertOne(post);
+    await postCollection.updateOne({ id: id }, { $set: { isFavorite: true } });
+  }     
+}
