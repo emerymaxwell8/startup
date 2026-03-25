@@ -63,30 +63,32 @@ const verifyAuth = async (req, res, next) => {
 };
 
 // GetPosts
-apiRouter.get('/posts', verifyAuth, (_req, res) => {
+apiRouter.get('/posts', verifyAuth, async (_req, res) => {
+  const posts = await DB.getPosts();
   res.send(posts);
 });
 
 // CreatePost
-apiRouter.post('/posts', verifyAuth, (req, res) => {
-  posts = updatePosts(req.body);
+apiRouter.post('/posts', verifyAuth, async (req, res) => {
+  const posts = await updatePosts(req.body);
   res.send(posts);
 });
 
 // AddLike
-apiRouter.post('/posts/like', verifyAuth, (req, res) => {
-  const updatedPost = updateLikes(req.body.id);
+apiRouter.post('/posts/like', verifyAuth, async (req, res) => {
+  const updatedPost = await updateLikes(req.body.id);
   res.send(updatedPost);
 });
 
 // GetFavorites
-apiRouter.get('/favorites', verifyAuth, (_req, res) => {
+apiRouter.get('/favorites', verifyAuth, async (_req, res) => {
+  const favorites = await DB.getFavorites();
   res.send(favorites);
 });
 
 // CreateFavorite
-apiRouter.post('/favorites', verifyAuth, (req, res) => {
-  favorites = updateFavorites(req.body.id);
+apiRouter.post('/favorites', verifyAuth, async (req, res) => {
+  const favorites = await updateFavorites(req.body.id);
   res.send(favorites);
 });
 
