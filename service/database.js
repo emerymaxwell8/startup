@@ -65,3 +65,14 @@ async function addFavorite(id) {
 function getFavorites() {
   return favoriteCollection.find().limit(8).toArray();
 }
+
+module.exports = {
+  addUser,
+  getUser,
+  getUserByToken,
+  getPosts,
+  addPost,
+  addLike,
+  addFavorite,
+  getFavorites
+};
