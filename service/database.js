@@ -61,3 +61,7 @@ async function addFavorite(id) {
     await postCollection.updateOne({ id: id }, { $set: { isFavorite: true } });
   }     
 }
+
+function getFavorites() {
+  return favoriteCollection.find().limit(8).toArray();
+}
