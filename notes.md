@@ -106,6 +106,22 @@ fetch('https://quote.cs260.click')
   to update = .updateMany()
   to delete = .deleteOne()
 
-I decided to switch favorites to be personal to each user so I had some complications with that. I had to make sure to specify the specific parts of the user to use for favorites. 
+  I decided to switch favorites to be personal to each user so I had some complications with that. I had to make sure to specify the specific parts of the user to use for favorites. 
 
-Other than that, using the database was very simple. 
+  Other than that, using the database was very simple.
+
+  ## WebSocket
+
+  to debug websocket, you can see it on the backend and then also under messages in the frontend
+
+  ws - non secure WebSocket
+  wss - secure Websocket
+
+  const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+  this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+
+
+
+
+
+
