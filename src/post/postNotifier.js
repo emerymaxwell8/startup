@@ -28,17 +28,24 @@ class PostNotifier {
             } catch {}
             };
     }
-}
 
-broadcastEvent(from, type, value) {
+    broadcastEvent(from, type, value) {
     const event = new PostMessage(from, type, value);
     this.socket.send(JSON.stringify(event));
-}
+    }
 
-addHandler(handler) {
-    this.handlers.push(handler);
-}
+    addHandler(handler) {
+        this.handlers.push(handler);
+    }
 
-removeHandler(handler) {
-    this.handlers = this.handlers.filter((h) => h !== handler);
-}
+    removeHandler(handler) {
+        this.handlers = this.handlers.filter((h) => h !== handler);
+    }
+
+    recieveEvent(event) {
+        this.events.push(event);
+        this.events.forEach((e) => {
+            this.handlers.forEach((handler) => handler(e));
+        });
+    }  
+}  
