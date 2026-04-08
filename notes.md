@@ -120,6 +120,8 @@ fetch('https://quote.cs260.click')
   const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
   this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 
+  This deliverable was a little harder to understand but easy to implement. The websocket creates a connection that is actively listening for updates. Whenever someone posts it is sent to the server which then sends it to everyone. 
+
 
 
 
