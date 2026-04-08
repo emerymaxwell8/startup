@@ -15,7 +15,12 @@ export function Post({userName}) {
     }
 
     React.useEffect(() => {
-        fetchPosts();
+        postNotifier.addHandler((event) => {
+            if (event.type === 'post' || event.type === 'like') {
+                fetchPosts();
+            }
+        });
+
     }, []);
 
     async function addPostEntry(name, plan) {
@@ -31,7 +36,9 @@ export function Post({userName}) {
 
         });
 
-        fetchPosts();
+        postNotifier.broadcastEvent(userName, 'post', plan);
+
+        //fetchPosts();
 
     }
 
@@ -45,7 +52,9 @@ export function Post({userName}) {
             body: JSON.stringify({ id }),
         });
 
-        fetchPosts();
+        postNotifier.broadcastEvent(userName, 'like', id);
+
+        //fetchPosts();
     }
 
     
