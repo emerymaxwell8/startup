@@ -34,3 +34,11 @@ broadcastEvent(from, type, value) {
     const event = new PostMessage(from, type, value);
     this.socket.send(JSON.stringify(event));
 }
+
+addHandler(handler) {
+    this.handlers.push(handler);
+}
+
+removeHandler(handler) {
+    this.handlers = this.handlers.filter((h) => h !== handler);
+}
