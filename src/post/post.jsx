@@ -1,5 +1,6 @@
 import React from 'react';
 import './post.css';
+import { postNotifier } from './postNotifier';
 
 export function Post({userName}) {
     const [posts, setPosts] = React.useState([]);
