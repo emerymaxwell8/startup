@@ -20,5 +20,13 @@ class PostNotifier {
         this.socket.onclose = (event) => {
             this.recieveMessage(new PostMessage('Tastymeals', 'connection', {msg: 'Disconnected'}));
         };
+
+        this.socket.onmessage = async (msg) => {
+            try {
+                const event = JSON.parse(await msg.data.text());
+                this.recieveMessage(event);
+            } catch {}
+            };
     }
 }
+
