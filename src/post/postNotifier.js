@@ -6,3 +6,13 @@ class PostMessage {
     }
 }
 
+class PostNotifier {
+    handlers = [];
+    events = [];
+    
+    constructor() {
+        const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        this.socket = new WebSocket(`${protocol}://${window.location.host}/post-notifier`);
+
+    }  
+}
