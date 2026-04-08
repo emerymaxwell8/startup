@@ -48,4 +48,6 @@ class PostNotifier {
             this.handlers.forEach((handler) => handler(e));
         });
     }  
-}  
+} 
+
+export const postNotifier = new PostNotifier();
