@@ -15,18 +15,22 @@ class PostNotifier {
         this.socket = new WebSocket(`${protocol}://${window.location.host}/post-notifier`);
 
         this.socket.onopen = (event) => {
-            this.recieveMessage(new PostMessage('Tastymeals', 'connection', {msg: 'Connected'}));
+            this.recieveEvent(new PostMessage('Tastymeals', 'connection', {msg: 'Connected'}));
         };
         this.socket.onclose = (event) => {
-            this.recieveMessage(new PostMessage('Tastymeals', 'connection', {msg: 'Disconnected'}));
+            this.recieveEvent(new PostMessage('Tastymeals', 'connection', {msg: 'Disconnected'}));
         };
 
         this.socket.onmessage = async (msg) => {
             try {
                 const event = JSON.parse(await msg.data.text());
-                this.recieveMessage(event);
+                this.recieveEvent(event);
             } catch {}
             };
     }
 }
 
+broadcastEvent(from, type, value) {
+    const event = new PostMessage(from, type, value);
+    this.socket.send(JSON.stringify(event));
+}
