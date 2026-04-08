@@ -40,8 +40,6 @@ export function Post({userName}) {
 
         postNotifier.broadcastEvent(userName, 'post', plan);
 
-        //fetchPosts();
-
     }
 
     async function addLike(id) { 
@@ -55,8 +53,6 @@ export function Post({userName}) {
         });
 
         postNotifier.broadcastEvent(userName, 'like', id);
-
-        //fetchPosts();
     }
 
     
