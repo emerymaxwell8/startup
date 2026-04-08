@@ -11,8 +11,9 @@ class PostNotifier {
     events = [];
     
     constructor() {
-        const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-        this.socket = new WebSocket(`${protocol}://${window.location.host}/post-notifier`);
+        let port = window.location.port;
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+        this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
 
         this.socket.onopen = (event) => {
             this.recieveEvent(new PostMessage('Tastymeals', 'connection', {msg: 'Connected'}));

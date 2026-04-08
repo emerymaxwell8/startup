@@ -15,6 +15,8 @@ export function Post({userName}) {
     }
 
     React.useEffect(() => {
+
+        fetchPosts();
         postNotifier.addHandler((event) => {
             if (event.type === 'post' || event.type === 'like') {
                 fetchPosts();
