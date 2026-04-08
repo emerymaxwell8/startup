@@ -136,4 +136,4 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Frontend makes WebSocket connection** - Frontend makes connection in postNotifier.js
 - [x] **Data sent over WebSocket connection** - JSON representation of posts sent over connection with broadcastEvent function found in postNotifier.js
 - [x] **WebSocket data displayed** - posts are displayed on post page and are updated in realtime
-- [] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Application is fully functional** - application works the way I hoped it to!
