@@ -81,10 +81,10 @@ apiRouter.post('/posts/like', verifyAuth, async (req, res) => {
   res.send(updatedPost);
 });
 
-// GetFavorites
+// GetFavoritess
 apiRouter.get('/favorites', verifyAuth, async (req, res) => {
   const user = await findUser('token', req.cookies[authCookieName]);
-  const favorites = await DB.getFavorites(user.username );
+  const favorites = await DB.getFavorites(user.username);
   res.send(favorites);
 });
 

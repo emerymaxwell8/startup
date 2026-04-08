@@ -7,7 +7,7 @@ export function Favorites() {
 const [favorites, setFavorites] = React.useState([]);
 
 React.useEffect(() => {
-    fetch('/api/favorites')
+    fetch('/api/favorites', {credentials: 'include'})
         .then((response) => response.json())
         .then((favorites) => {
         setFavorites(favorites);
