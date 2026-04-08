@@ -1,6 +1,5 @@
 import React from 'react';
 import './post.css';
-import {getName, getPlan} from '../service.js';
 
 export function Post({userName}) {
     const [posts, setPosts] = React.useState([]);
@@ -57,27 +56,6 @@ export function Post({userName}) {
             body: JSON.stringify({ id }),
         });
     }
-
-
-    React.useEffect(() => {
-        const interval = setInterval(async () => await addPostEntry(getName(), getPlan()), 10000);
-        
-        const interval2 = setInterval(async () => {
-            const res = await fetch('/api/posts', {credentials: 'include'});
-            const updatedPosts = await res.json();
-            
-            if (updatedPosts.length === 0) return;
-            const randomIndex = Math.floor(Math.random() * updatedPosts.length);
-            const postId = updatedPosts[randomIndex].id;   
-            await addLike(postId);
-        }, 3000);
-        
-        
-        return () => {
-            clearInterval(interval);
-            clearInterval(interval2);
-        };
-    }, []);
 
  
     return (
